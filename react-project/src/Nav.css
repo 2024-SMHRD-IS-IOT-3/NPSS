@@ -1,0 +1,18 @@
+.navbar {
+    width: 100%;
+    background-color: rgb(102, 148, 195);
+    padding: 15px 0px;
+    text-align: left;
+}
+
+.navbarMenu {
+    color: whitesmoke;
+    margin: 8px;
+    text-decoration: none;
+}
+.navbarMenu>a {
+    color: whitesmoke;
+    margin: 8px;
+    text-decoration: none;
+    text-align: right;
+}
