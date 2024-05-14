@@ -23,26 +23,19 @@ const Login = () => {
         <h4>로그인</h4>
 
         <div className='formBox'>
-            <Form onSubmit={handleLogin}>
-                <Form.Group className="mb-3" controlId="formBasicID">
-                    <Form.Label>ID</Form.Label>
-                    <Form.Control type="text" placeholder="Enter id" 
-                                onChange={(e)=>{setId(e.target.value)}}
-                    />
-                </Form.Group>
+            <form className="formTag" onSubmit={handleLogin}>
+                <span>ID</span> <br/>
+                <input type="text" name="ID" placeholder='아이디를 입력하세요.' onChange={(e)=>{setId(e.target.value)}}/>
+                <br/>
+                <span>Password</span> <br/>
+                <input type="password" name="PW" placeholder='비밀번호를 입력하세요.' onChange={(e)=>{setPw(e.target.value)}}/>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password"
-                                onChange={(e)=>{setPw(e.target.value)}}
-                    />
-                </Form.Group>
 
                 <div className="button-container">
                     <button type="submit" className="btn">로그인</button>
                 </div>
-            </Form>
-            <div className="button-container">
+            </form>
+            <div className="button-container-onclick">
                     <button onClick={()=>{window.location.href="/"}}>메인으로</button>  
             </div>
         </div>

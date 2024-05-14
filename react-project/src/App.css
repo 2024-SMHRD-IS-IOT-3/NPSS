@@ -1,5 +1,40 @@
 @import url('https://fonts.googleapis.com/css?family=Alatsi|Poppins&display=swap');
 
+/* form 태그 */
+.formTag {
+  width: 100%;
+  padding-top: 12px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-top: 8px ;
+  display: inline-block;
+  /* border: 1px solid #ccc; */
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.formTag>input {
+  display: inline-block;
+  width: 100%;
+  border: 1px solid rgb(17, 82, 147);
+  padding: 5px;
+  border-radius: 4px;
+  margin: 8px;
+}
+.formTag>span {
+  padding: 10px;
+  color: rgb(5, 35, 65);
+  font-weight: 500px;  
+
+}
+.formCheckbox { 
+  display: inline-block;
+  width: 100%;
+  border: 1px dashed rgb(17, 82, 147);
+  padding: 5px;
+  border-radius: 4px;
+  margin: 8px;
+}
+
 /* 버튼들 - 로그인, 회원가입, 긴 버튼들 */
 .button-container{
   text-decoration: none;
@@ -23,6 +58,7 @@
 /* 버튼들 - 메인화면 짧은 버튼들 */
 .button-container-2{
   display: inline-block;
+  padding: 10px;
 }
 .button-container-2>button {
   color: whitesmoke;
@@ -32,9 +68,37 @@
   border-radius: 5px;
   width: 100px;
   height: 40px;
-  margin: 10px;
+  margin: 10px 0;
 }
 .button-container-2>button:hover {
+  background-color: white;
+  color : rgb(17, 82, 147);
+  border: 0.5px solid rgb(17, 82, 147);
+}
+
+/* 따로 빼져있는 버튼들 */
+.button-container-onclick { 
+  width: 100%;
+  padding-bottom: 12px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-bottom: 8px ;
+  display: inline-block;
+  /* border: 1px solid #ccc; */
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.button-container-onclick>button{
+  color: whitesmoke;
+  background-color: rgb(17, 82, 147);
+  text-decoration: none;
+  border:0.5px solid rgb(17, 82, 147);
+  border-radius: 5px;
+  width: 100%;
+  height: 40px;
+  margin: 10px;
+}
+.button-container-onclick>button:hover {
   background-color: white;
   color : rgb(17, 82, 147);
   border: 0.5px solid rgb(17, 82, 147);
@@ -44,7 +108,7 @@
 /* accordian menu */
 /* Style the buttons that are used to open and close the accordion panel */
 div.accordionDiv {
-  display: inline-block;
+  display: inline;
   height: 100%;
   width: 13%;
   float: left;
@@ -55,6 +119,7 @@ div.accordionDiv {
   cursor: pointer;
   padding: 18px;
   width: 100%;
+  height: auto;
   text-align: left;
   border: none;
   outline: none;
@@ -66,6 +131,7 @@ div.accordionDiv {
   cursor: pointer;
   padding: 18px;
   width: 100%;
+  text-size-adjust: auto;
   text-align: left;
   border: none;
   outline: none;
@@ -88,18 +154,21 @@ li.panelLi>a {
   background-color: rgb(17, 82, 147);
   display: none;
   overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
 }
 .accordion:after {
   content: '\02795'; /* Unicode character for "plus" sign (+) */
+  color:  rgb(252, 205, 97);
   font-size: 13px;
   float: right;
   margin-left: 5px;
-  text-shadow: 0 0 0 coral;
+  text-shadow: 0 0 0 red;
 }
 
 .active:after {
   content: "\2796"; /* Unicode character for "minus" sign (-) */
-  text-shadow: 0 0 0 coral;
+  text-shadow: 0 0 0 red;
 }
 
 
@@ -122,15 +191,35 @@ button>a:hover{
 }
 
 /* index 페이지 그래프들 */
-div.indexGraph{
+.indexGraph{
   font-size: 30px;
   width : 500px;
-  height : 200px;
-  display : inline-block;
-  border : 1px solid #6c757d;
+  height : 300px;
+  border : 1px solid rgb(17, 82, 147);
   margin: 10px;
-  padding: 50px;
   box-sizing: border-box;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  place-items: center;
+}
+.indexGraph>img{
+  width: 280px;
+  height: 200px;
+  position: absolute;
+}
+/* index 페이지 */
+.indexDiv {
+  display: flex;
+  flex-direction: row;
+  /* align-items: space-around; */
+  place-items: center;
+  justify-content: center;
+}
+.indexDiv>div {
+  margin: 10px;
+  border: 1px solid rgb(17, 82, 147);
+  border-radius: 4px;
 }
 
 .container{
@@ -141,8 +230,8 @@ div.indexGraph{
 .formBox{
   text-align: left;
   padding: 5%;
-  display: inline-block;
-  width: 100%;
+  display: inline;
+  width: 87%;
   float: right;
 }
 

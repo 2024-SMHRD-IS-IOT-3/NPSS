@@ -22,15 +22,17 @@ const AccordionMenu = () => {
         panel.style.display = "block";
       }
     });
+
+
 }
    
-
     return (
       <div class="accordionDiv">
         <button class="accordion">Home</button>
           <div class="panel">
             <ul type="none">
               <li class="panelLi"><Link to={'/'}>Main</Link></li>
+              <li class="panelLi"><Link to={'/introduce'}>서비스소개</Link></li>
               <li class="panelLi"><Link to={'/login'}>Logout</Link></li>
             </ul>
           </div>

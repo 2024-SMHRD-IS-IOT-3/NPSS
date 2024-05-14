@@ -25,42 +25,29 @@ const Join = () => {
 
         <h4>회원가입</h4>
         <div className='formBox'>
-            <Form onSubmit={handleJoin}>
-                <Form.Group className="mb-3" controlId="formBasicID">
-                    <Form.Label>아이디</Form.Label>
-                    <Form.Control type="text" placeholder="Enter ID"
-                                onChange={(e)=>{setId(e.target.value)}}/>
-                </Form.Group>
+            <form className="formTag" onSubmit={handleJoin}>
+                <span>ID</span> <br/>
+                <input type="text" name="ID" placeholder='아이디를 입력하세요.' onChange={(e)=>{setId(e.target.value)}}/>
+                <br/>
+                <span>Password</span><br/>
+                <input type="password" name="PW" placeholder='비밀번호를 입력하세요.' onChange={(e)=>{setPw(e.target.value)}}/>
+                <span>Password  확인</span><br/>
+                <input type="password" name="CheckPW" placeholder='비밀번호를 다시 한 번 입력하세요.' onChange={(e)=>{setCheckPw(e.target.value)}}/>
+                <span>email</span> <br/>
+                <input type="email" name="email" placeholder='이메일을 입력하세요.' onChange={(e)=>{setEmail(e.target.value)}}/>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>비밀번호</Form.Label>
-                    <Form.Control type="password" placeholder="Password"
-                                onChange={(e)=>{setPw(e.target.value)}}/>
-                </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>비밀번호 확인</Form.Label>
-                    <Form.Control type="password" placeholder="Password"
-                                onChange={(e)=>{setCheckPw(e.target.value)}}/>
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formGroupEmail">
-                    <Form.Label>이메일 주소</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" onChange={(e)=>{setEmail(e.target.value)}}/>
-
-                </Form.Group>
-            
                 <div className="button-container">
                     <button type="submit" className="btn">회원가입</button>
                 </div>
-            </Form>
-            
-            <div className="button-container">
+            </form>
+            <div className="button-container-onclick">
                     <button onClick={()=>{window.location.href="/"}}>메인으로</button>  
             </div>
+        </div>
       </div>
 
-    </div>
+    
   )
 }
 

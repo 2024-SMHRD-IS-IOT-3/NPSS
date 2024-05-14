@@ -10,7 +10,7 @@ import Introduce from './components/Introduce';
 import Check from './components/Check';
 import MyPage from './components/MyPage';
 import Nav from './components/Nav';
-
+import Light from './components/Light';
 
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
         <Route path="/index" element={<Index/>}></Route>
         <Route path="/check" element={<Check/>}></Route>
         <Route path="/mypage" element={<MyPage/>}></Route>
+        <Route path="/light" element={<Light/>}></Route>
       </Routes>
     </div>
   );
