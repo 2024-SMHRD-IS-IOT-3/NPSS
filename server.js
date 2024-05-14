@@ -19,8 +19,6 @@ app.use(express.static(path.join(__dirname, "react-project", "build")));
 // 원래 컴 설정에 맞게 서버를 켜주겠다. 없다면 3000으로
 app.set('port', process.env.PORT || 3000);
 
-
-
 app.use(router);
 app.listen(app.get('port'), ()=>{
     console.log(app.get('port'), "waiting...")
