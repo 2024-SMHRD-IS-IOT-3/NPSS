@@ -10,6 +10,7 @@ import Introduce from './components/Introduce';
 import Check from './components/Check';
 import MyPage from './components/MyPage';
 import Nav from './components/Nav';
+import Light from './components/Light';
 
 
 
