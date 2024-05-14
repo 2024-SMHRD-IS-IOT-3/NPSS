@@ -15,15 +15,15 @@ const Main = () => {
         </div>
         
         <br/><br/><br/><br/><br/><br/><br/>
-        <Button variant="outline-secondary">
-            <Link to="/introduce">기업 소개</Link>
-        </Button>{' '}
-        <Button variant="outline-secondary">
-            <Link to="/join">회원가입</Link>
-        </Button>{' '}
-        <Button variant="outline-secondary">
-            <Link to="/login">로그인</Link>
-        </Button>{' '}
+        <div className="button-container-2">
+            <button onClick={()=>{window.location.href="/introduce"}}>기업소개</button>  
+        </div>
+        <div className="button-container-2">
+            <button onClick={()=>{window.location.href="/join"}}>회원가입</button>  
+        </div>
+        <div className="button-container-2">
+            <button onClick={()=>{window.location.href="/login"}}>로그인</button>  
+        </div>
 
     </div>
   )

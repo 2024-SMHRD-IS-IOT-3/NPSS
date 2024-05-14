@@ -15,15 +15,15 @@ const Introduce = () => {
             <h3>저희 기업을 소개합니다! </h3>
         </div>
         <br/><br/><br/><br/><br/><br/><br/>
-        <Button variant="outline-secondary">
-            <Link to="/">메인으로</Link>
-        </Button>{' '}
-        <Button variant="outline-secondary">
-            <Link to="/join">회원가입</Link>
-        </Button>{' '}
-        <Button variant="outline-secondary">
-            <Link to="/login">로그인</Link>
-        </Button>{' '}
+        <div className="button-container-2">
+            <button onClick={()=>{window.location.href="/"}}>메인으로</button>  
+        </div>
+        <div className="button-container-2">
+            <button onClick={()=>{window.location.href="/join"}}>회원가입</button>  
+        </div>
+        <div className="button-container-2">
+            <button onClick={()=>{window.location.href="/login"}}>로그인</button>  
+        </div>
 
     </div>
 

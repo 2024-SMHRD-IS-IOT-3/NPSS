@@ -1,3 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Alatsi|Poppins&display=swap');
+
+/* 버튼들 - 로그인, 회원가입, 긴 버튼들 */
+.button-container{
+  text-decoration: none;
+}
+.button-container>button{
+  color: whitesmoke;
+  background-color: rgb(17, 82, 147);
+  text-decoration: none;
+  border:0.5px solid rgb(17, 82, 147);
+  border-radius: 5px;
+  width: 100%;
+  height: 40px;
+  margin: 10px;
+}
+.button-container>button:hover {
+  background-color: white;
+  color : rgb(17, 82, 147);
+  border: 0.5px solid rgb(17, 82, 147);
+}
+
+/* 버튼들 - 메인화면 짧은 버튼들 */
+.button-container-2{
+  display: inline-block;
+}
+.button-container-2>button {
+  color: whitesmoke;
+  background-color: rgb(17, 82, 147);
+  text-decoration: none;
+  border:0.5px solid rgb(17, 82, 147);
+  border-radius: 5px;
+  width: 100px;
+  height: 40px;
+  margin: 10px;
+}
+.button-container-2>button:hover {
+  background-color: white;
+  color : rgb(17, 82, 147);
+  border: 0.5px solid rgb(17, 82, 147);
+}
+
+
 /* accordian menu */
 /* Style the buttons that are used to open and close the accordion panel */
 div.accordionDiv {
@@ -5,10 +48,9 @@ div.accordionDiv {
   height: 100%;
   width: 13%;
   float: left;
-
 }
 .accordion {
-  background-color:  rgb(102, 148, 195);
+  background-color:  rgb(17, 82, 147);
   color: whitesmoke;
   cursor: pointer;
   padding: 18px;
@@ -19,7 +61,7 @@ div.accordionDiv {
   transition: 0.4s;
 }
 .accordion>a{
-  background-color:  rgb(102, 148, 195);
+  background-color:  rgb(17, 82, 147);
   color: whitesmoke;
   cursor: pointer;
   padding: 18px;
@@ -37,26 +79,27 @@ li.panelLi>a {
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .accordion:hover {
-  background-color: rgb(102, 148, 195);
+  background-color: rgb(17, 82, 147);
 }
 
 /* Style the accordion panel. Note: hidden by default */
 .panel {
   padding: 0 18px;
-  background-color: rgb(102, 148, 195);
+  background-color: rgb(17, 82, 147);
   display: none;
   overflow: hidden;
 }
 .accordion:after {
   content: '\02795'; /* Unicode character for "plus" sign (+) */
   font-size: 13px;
-  color: #777;
   float: right;
   margin-left: 5px;
+  text-shadow: 0 0 0 coral;
 }
 
 .active:after {
   content: "\2796"; /* Unicode character for "minus" sign (-) */
+  text-shadow: 0 0 0 coral;
 }
 
 
@@ -70,24 +113,9 @@ div.menubar {
 }
 
 
-div.logout {
-  /* display: flex; */
-  place-items: right;
-}
-div.logout>a {
-  text-align: right;
-  text-decoration: none;
-  color: #6c757d;
-  float: right;
-  
-}
-div.logout>a:hover {
-  color : black;
-}
-
 button>a{
   text-decoration: none;
-  color: #6c757d;
+  color: rgb(17, 82, 147);
 }
 button>a:hover{
   color: white;
@@ -114,7 +142,7 @@ div.indexGraph{
   text-align: left;
   padding: 5%;
   display: inline-block;
-  width: 87%;
+  width: 100%;
   float: right;
 }
 

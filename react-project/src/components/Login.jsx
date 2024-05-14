@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 // import axios from '../axios'
 import { Link } from 'react-router-dom';
-import AccordionMenu from './AccordionMenu';
+// import AccordionMenu from './AccordionMenu';
 
 const Login = () => {
 
@@ -19,7 +19,7 @@ const Login = () => {
         <div>
         <Link to="/"><img className="logo2" src='img/NPSS_logo2.png' alt='이미지 준비중...'/></Link>
         </div>
-        <AccordionMenu/>
+        {/* <AccordionMenu/> */}
         <h4>로그인</h4>
 
         <div className='formBox'>
@@ -38,15 +38,13 @@ const Login = () => {
                     />
                 </Form.Group>
 
-                <div className="d-grid gap-2">
-                    <Button variant="outline-secondary" type="submit">
-                    로그인
-                    </Button>
-                    <Button variant="outline-secondary">
-                        <Link to="/join">회원가입</Link>
-                    </Button>{' '}
+                <div className="button-container">
+                    <button type="submit" className="btn">로그인</button>
                 </div>
             </Form>
+            <div className="button-container">
+                    <button onClick={()=>{window.location.href="/"}}>메인으로</button>  
+            </div>
         </div>
 
     </div>

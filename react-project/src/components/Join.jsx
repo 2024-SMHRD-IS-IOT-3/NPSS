@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 // import axios from '../axios'
 import { Link } from 'react-router-dom';
-import AccordionMenu from './AccordionMenu';
+// import AccordionMenu from './AccordionMenu';
 
 const Join = () => {
 
@@ -12,7 +12,7 @@ const Join = () => {
   const [email, setEmail] = useState("");
 
   const handleJoin = (e)=>{
-    e.preventDefault();
+    e.preventDefault(); 
     console.log('handle join function');
   }
 
@@ -21,7 +21,7 @@ const Join = () => {
         <div className='header'>
           <Link to="/"><img className="logo2" src='img/NPSS_logo2.png' alt='이미지 준비중...'/></Link>
         </div>
-        <AccordionMenu/>
+        {/* <AccordionMenu/> */}
 
         <h4>회원가입</h4>
         <div className='formBox'>
@@ -50,15 +50,14 @@ const Join = () => {
 
                 </Form.Group>
             
-                <div className="d-grid gap-2">
-                    <Button variant="outline-secondary" type="submit">
-                    회원가입
-                    </Button>
-                    <Button variant="outline-secondary">
-                      <Link to="/">메인으로</Link>
-                    </Button>{' '}
+                <div className="button-container">
+                    <button type="submit" className="btn">회원가입</button>
                 </div>
             </Form>
+            
+            <div className="button-container">
+                    <button onClick={()=>{window.location.href="/"}}>메인으로</button>  
+            </div>
       </div>
 
     </div>
