@@ -1,7 +1,11 @@
+// npm install --save oracledb 실행 후
+// https://devbybyun.tistory.com/7
+// 위 사이트 참고해서 Basic, sdk를 다운받고 폴더 생성 후 경로 변경
+
 const oracledb = require('oracledb');
 oracledb.autoCommit = true;
 // Oracle Instant Client가 설치된 디렉토리의 실제 경로를 지정
-oracledb.initOracleClient({ libDir: 'C:\\Users\\smhrd\\Desktop\\instantclient\\instantclient_11_2' }); 
+oracledb.initOracleClient({ libDir: 'C:\\Users\\SMHRD\\Desktop\\instantclient\\instantclient_11_2' }); 
 
 async function connectToOracle() {
     try {

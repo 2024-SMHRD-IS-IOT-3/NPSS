@@ -11,11 +11,6 @@ import Check from './components/Check';
 import MyPage from './components/MyPage';
 import Nav from './components/Nav';
 import Light from './components/Light';
-<<<<<<< HEAD
-=======
-
->>>>>>> 5b24d9aa9ce03eee57d779aae806323ab87c52ad
-
 
 function App() {
   return (

@@ -28,7 +28,9 @@ const AccordionMenu = () => {
    
     return (
       <div class="accordionDiv">
-        <button class="accordion">Home</button>
+        <button class="accordion">
+            <i class="fi fi-rr-shop"></i>Home
+        </button>
           <div class="panel">
             <ul type="none">
               <li class="panelLi"><Link to={'/'}>Main</Link></li>

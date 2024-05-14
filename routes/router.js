@@ -4,7 +4,7 @@ const connectToOracle  = require('../config/db'); // 데이터베이스 연결 �
 const path = require('path');
 
 // 메인 경로
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
     console.log("누군가 메인페이지에 접근!")
     res.sendFile(path.join(__dirname, "..", "react-project", "build", "index.html"))
 })
@@ -48,5 +48,26 @@ router.post('/handleJoin', async (req, res) => { // 비동기 함수로 변경
     }
 })
 
+// 로그인을 담당하는 경로(기능)
+router.post('/handleLogin', async (req, res) => {
+    console.log('handle login router', req.body)
+
+    const { id, pw } = req.body;
+
+    try {
+        const connection = await connectToOracle();
+        const sql = `SELECT USER_ID FROM USER_INFO WHERE USER_ID = ? AND USER_PW = ?`;
+        const result = await connection.execute(sql, [id, pw]);
+
+        if (result.rows.length > 0) {
+            res.send({ result: "success", id: result.rows[0].USER_ID });
+        } else {
+            res.send({ result: "fail" });
+        }
+    } catch (err) {
+        console.error('Error executing query:', err);
+        res.status(500).send({ result: 'fail', error: err.message });
+    }
+})
 
 module.exports = router;
