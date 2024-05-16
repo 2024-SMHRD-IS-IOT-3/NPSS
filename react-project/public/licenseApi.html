@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div id="txt"></div>
+    <button id="btn">데이터 요청</button>
+
+
+    <script>
+        let api_key = c29vYjA1MTNAZ21haWwuY29t;
+        let start_index = 1;
+        let end_index 
+        
+        $("#btn").on("click",()=>{
+            // let url = "https://bizno.net/api/fapi?key=" + api_key + "&gb="+start_index +"&q=" + license_number+"&type=json"
+            $.ajax({
+                url : "https://bizno.net/api/fapi?key=c29vYjA1MTNAZ21haWwuY29t&gb=3&q=우리금융지주&type=json",
+                type : "get",
+                success : function(res){
+                    console.log(res);
+                }
+
+
+                
+            })
+        })
+    </script>
+</body>
+</html>

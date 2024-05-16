@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import '../Nav.css';
-
+import { MdOutlineStorefront } from "react-icons/md";
+import { HiHome } from "react-icons/hi2";
 
 const AccordionMenu = () => {
 
@@ -27,39 +28,54 @@ const AccordionMenu = () => {
 }
    
     return (
-      <div class="accordionDiv">
-        <button class="accordion">
-            <i class="fi fi-rr-shop"></i>Home
+      <div className="accordionDiv">
+        <button className="accordion">
+        <HiHome color='whitesmoke' size='18px'/><span> Home</span>
         </button>
-          <div class="panel">
+          <div className="panel">
             <ul type="none">
-              <li class="panelLi"><Link to={'/'}>Main</Link></li>
-              <li class="panelLi"><Link to={'/introduce'}>서비스소개</Link></li>
-              <li class="panelLi"><Link to={'/login'}>Logout</Link></li>
+              <li className="panelLi"><Link to={'/light'}>조명</Link></li>
+              <li className="panelLi"><Link to={'/sign'}>간판</Link></li>
+              <li className="panelLi"><Link to={'/solar'}>태양열</Link></li>
+              <li className="panelLi"><Link to={'/cooler'}>냉난방장치</Link></li>
             </ul>
           </div>
-        <button class="accordion">Section 1</button>
-          <div class="panel">
+        <button className="accordion">
+        <MdOutlineStorefront color='whitesmoke' size='20px'/><span> Store 1</span>
+        </button>
+          <div className="panel">
             <ul type="none">
-              <li class="panelLi"><Link to={'/'}>Main</Link></li>
-              <li class="panelLi"><Link to={'/login'}>Logout</Link></li>
-            </ul>
-          </div>
-
-          <button class="accordion">Section 2</button>
-          <div class="panel">
-            <ul type="none">
-              <li class="panelLi"><Link to={'/'}>Main</Link></li>
-              <li class="panelLi"><Link to={'/login'}>Logout</Link></li>
+              <li className="panelLi"><Link to={'/light'}>조명</Link></li>
+              <li className="panelLi"><Link to={'/sign'}>간판</Link></li>
+              <li className="panelLi"><Link to={'/solar'}>태양열</Link></li>
+              <li className="panelLi"><Link to={'/cooler'}>냉난방장치</Link></li>
             </ul>
           </div>
 
-          <button class="accordion">Section 3</button>
-          <div class="panel">
+          <button className="accordion">
+            <MdOutlineStorefront color='whitesmoke'size='20px'/><span> Store 2</span>
+          </button>
+          <div className="panel">
             <ul type="none">
-              <li class="panelLi"><Link to={'/'}>Main</Link></li>
-              <li class="panelLi"><Link to={'/login'}>Logout</Link></li>
+              <li className="panelLi"><Link to={'/light'}>조명</Link></li>
+              <li className="panelLi"><Link to={'/sign'}>간판</Link></li>
+              <li className="panelLi"><Link to={'/solar'}>태양열</Link></li>
+              <li className="panelLi"><Link to={'/cooler'}>냉난방장치</Link></li>
             </ul>
+          </div>
+
+          <button className="accordion">
+            <MdOutlineStorefront color='whitesmoke' size='20px'/><span> Store 3</span>
+          </button>
+          <div className="panel">
+            <ul type="none">
+              <li className="panelLi"><Link to={'/light'}>조명</Link></li>
+              <li className="panelLi"><Link to={'/sign'}>간판</Link></li>
+              <li className="panelLi"><Link to={'/solar'}>태양열</Link></li>
+              <li className="panelLi"><Link to={'/cooler'}>냉난방장치</Link></li>
+            </ul>
+
+          <div className='accordionEmpty'></div>
       </div>
     </div>
     );

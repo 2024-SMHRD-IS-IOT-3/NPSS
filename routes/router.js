@@ -49,25 +49,26 @@ router.post('/handleJoin', async (req, res) => { // 비동기 함수로 변경
 })
 
 // 로그인을 담당하는 경로(기능)
-router.post('/handleLogin', async (req, res) => {
+router.post('/handleLogin', async (req, res)=>{
     console.log('handle login router', req.body)
 
-    const { id, pw } = req.body;
-
+    let {id, pw}= req.body;
+    
     try {
-        const connection = await connectToOracle();
-        const sql = `SELECT USER_ID FROM USER_INFO WHERE USER_ID = ? AND USER_PW = ?`;
-        const result = await connection.execute(sql, [id, pw]);
-
+        const connection = await connectToOracle(); // 데이터베이스 연결 객체를 가져옴
+        let sql = `SELECT USER_ID FROM USER_INFO WHERE USER_ID =:1 AND USER_PW =:2`;
+        result = await connection.execute(sql, [id, pw]); 
+        console.log(result.rows);
         if (result.rows.length > 0) {
-            res.send({ result: "success", id: result.rows[0].USER_ID });
+            res.send(result.rows);
         } else {
             res.send({ result: "fail" });
         }
-    } catch (err) {
+    } catch (err){
         console.error('Error executing query:', err);
-        res.status(500).send({ result: 'fail', error: err.message });
+        res.status(500).send({ result: 'fail' });
     }
 })
+
 
 module.exports = router;

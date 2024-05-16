@@ -3,15 +3,12 @@ import { Form, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import AccordionMenu from './AccordionMenu';
 import ReactDOM from 'react-dom'
-// import { faStore } from "react-icons/fa";
 
-
-const Light = () => {
+const Sign = () => {
     const getstringDate = (date)=>{
         return date.toISOString().slice(0,10);
     }
     const [date, setDate] = useState(getstringDate(new Date()));
-
 
   return (
     <div>
@@ -24,7 +21,8 @@ const Light = () => {
             <div className='indexInfo'>
                 <h5 className='indexTitle'>아이스크림 남구점</h5>
                 <input className="inputDate" type="date" value={date} onChange={(e)=>{setDate(e.target.value)}}></input>
-                
+                <br/>
+                <h5 className='indexTitle'>태양열 번호 : sakdjfhgakfdgh</h5>
             </div>
             <div className="indexDiv">
                 <br/>
@@ -64,9 +62,11 @@ const Light = () => {
             <button onClick={()=>{window.location.href="/mypage"}}>정보수정</button>  
         </div>
         </div>
-    </div>
 
+
+
+    </div>
   )
 }
 
-export default Light
+export default Sign

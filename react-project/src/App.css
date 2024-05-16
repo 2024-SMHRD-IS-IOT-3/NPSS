@@ -1,12 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Alatsi|Poppins&display=swap');
 
 /* form 태그 */
+.card{
+  margin: 10px;
+  align-items: left;
+  
+}
+
 .formTag {
-  width: 100%;
+  width: 85%;
   padding-top: 12px;
   padding-right: 20px;
   padding-left: 20px;
   margin-top: 8px ;
+  margin-right: 5%;
   display: inline-block;
   /* border: 1px solid #ccc; */
   border-radius: 4px;
@@ -94,7 +101,7 @@
   text-decoration: none;
   border:0.5px solid rgb(17, 82, 147);
   border-radius: 5px;
-  width: 100%;
+  width: 84.25%;
   height: 40px;
   margin: 10px;
 }
@@ -107,13 +114,33 @@
 
 /* accordian menu */
 /* Style the buttons that are used to open and close the accordion panel */
+
+/* .accordionEmpty{
+  background-color: rgb(17, 82, 147);
+  height: 100%;
+} */
 div.accordionDiv {
-  display: inline;
+  direction: inherit;
+  display: block;
+  list-style-type: disc;
+  /* margin-block-start: 1em;
+  margin-block-end: 1em; */
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  /* padding-inline-start: 40px; */
+  unicode-bidi: isolate;
   height: 100%;
   width: 13%;
+  scrollbar-width: none;
   float: left;
+  background-color: rgb(17, 82, 147);
+
+  /* display: inline;
+  height: 100%;
+  width: 13%;
+  float: left; */
 }
-.accordion {
+button.accordion {
   background-color:  rgb(17, 82, 147);
   color: whitesmoke;
   cursor: pointer;
@@ -121,6 +148,7 @@ div.accordionDiv {
   width: 100%;
   height: auto;
   text-align: left;
+  float: left;
   border: none;
   outline: none;
   transition: 0.4s;
@@ -139,8 +167,17 @@ div.accordionDiv {
 }
 
 li.panelLi>a {
+  text-align: -webkit-match-parent;
   text-decoration: none;
   color: whitesmoke;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-size-adjust: auto;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -150,27 +187,34 @@ li.panelLi>a {
 
 /* Style the accordion panel. Note: hidden by default */
 .panel {
+  float: left;
+  width: 100%;
   padding: 0 18px;
   background-color: rgb(17, 82, 147);
   display: none;
   overflow: hidden;
-  max-height: 0;
+  /* max-height: 0; */
   transition: max-height 0.2s ease-out;
 }
 .accordion:after {
-  content: '\02795'; /* Unicode character for "plus" sign (+) */
-  color:  rgb(252, 205, 97);
+  content: '\0271A'; /* Unicode character for "plus" sign (+) */
+  color: whitesmoke;
   font-size: 13px;
+  display: block;
   float: right;
   margin-left: 5px;
-  text-shadow: 0 0 0 red;
+  transition: 0.4s;
+  /* text-shadow: 0 0 0 red; */
 }
 
 .active:after {
-  content: "\2796"; /* Unicode character for "minus" sign (-) */
-  text-shadow: 0 0 0 red;
+  display: flex;
+  float: right;
+  content: "\2212"; /* Unicode character for "minus" sign (-) */
+  color: whitesmoke;
+  font-weight: bold;
+  /* text-shadow: 0 0 0 red; */
 }
-
 
 div.menubar {
   display : inline-block;
@@ -181,7 +225,6 @@ div.menubar {
   height: 100%;
 }
 
-
 button>a{
   text-decoration: none;
   color: rgb(17, 82, 147);
@@ -191,11 +234,33 @@ button>a:hover{
 }
 
 /* index 페이지 그래프들 */
+.contentPage {
+  width: 100%;
+}
+.indexTitle {
+  justify-content: left;
+  padding-left: 10px;
+  text-align: left;
+  /* margin-block-start: 1.33em;
+  margin-block-end: 1.33em; */
+  /* margin-inline-start: 10px;
+  margin-inline-end: 10px; */
+  font-weight: bold;
+  unicode-bidi: isolate;
+  box-sizing: border-box;
+}
+
+.indexContent {
+  width: auto;
+  height: auto;
+}
+
 .indexGraph{
   font-size: 30px;
   width : 500px;
   height : 300px;
-  border : 1px solid rgb(17, 82, 147);
+  background-color: #f2f2f2;
+  /* border : 1px solid rgb(17, 82, 147); */
   margin: 10px;
   box-sizing: border-box;
   border-radius: 4px;
@@ -206,22 +271,42 @@ button>a:hover{
 .indexGraph>img{
   width: 280px;
   height: 200px;
-  position: absolute;
+  position: relative;
+
 }
 /* index 페이지 */
 .indexDiv {
   display: flex;
   flex-direction: row;
+  width: auto;
+  max-width: 87%;
   /* align-items: space-around; */
   place-items: center;
   justify-content: center;
-}
-.indexDiv>div {
   margin: 10px;
-  border: 1px solid rgb(17, 82, 147);
-  border-radius: 4px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
+.indexDiv>div {
+  display: block;
+  margin: 10px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  /* border: 1px solid rgb(17, 82, 147); */
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.indexInfo{
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  float: center;
+}
+.inputDate {
+  margin-left: 20px;
+}
 .container{
   padding: 5%;
   width: 95vw;
@@ -229,14 +314,28 @@ button>a:hover{
 
 .formBox{
   text-align: left;
-  padding: 5%;
+  place-items: center;
+  padding-top: 5%;
+  margin-top: 5%;
+  padding-bottom: 5%;
+  margin-bottom: 5%;
+  padding-left: 5%;
+  margin-left: 5%;
+  padding-right: 5%;
+  margin-right: 5%;
   display: inline;
   width: 87%;
-  float: right;
+  float: left;
+  justify-content: center;
+  background-color: #f2f2f2;
+  border-radius: 7px;
 }
 
 .header {
   width: 100%;
+}
+.logo {
+  place-items: center;
 }
 img.logo1 {
   width: 300px;

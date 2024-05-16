@@ -11,6 +11,11 @@ import Check from './components/Check';
 import MyPage from './components/MyPage';
 import Nav from './components/Nav';
 import Light from './components/Light';
+import Footer from './components/Footer';
+import Solar from './components/Solar';
+import Sign from './components/Sign';
+import Cooler from './components/Cooler';
+
 
 function App() {
   return (
@@ -25,7 +30,12 @@ function App() {
         <Route path="/check" element={<Check/>}></Route>
         <Route path="/mypage" element={<MyPage/>}></Route>
         <Route path="/light" element={<Light/>}></Route>
+        <Route path="/solar" element={<Solar/>}></Route>
+        <Route path="/cooler" element={<Cooler/>}></Route>
+        <Route path="/sign" element={<Sign/>}></Route>
+
       </Routes>
+      <Footer/>
     </div>
   );
 }

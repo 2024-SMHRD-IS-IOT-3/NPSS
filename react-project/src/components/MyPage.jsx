@@ -26,13 +26,11 @@ const MyPage = () => {
 
   return (
     <div>
-        <div>
+        <div className='header'>
             <Link to="/"><img className="logo2" src='img/NPSS_logo2.png' alt='이미지 준비중...'/></Link>
         </div>
-        <AccordionMenu/>
-        <h4>정보 수정</h4>
-
         <div className='formBox'>
+            <h4>정보 수정</h4>
             <form className="formTag" onSubmit={handleMyPage}>
                 <span>사업자 등록번호 변경</span> <br/>
                 <input type="text" name="ID" placeholder='변경하실 사업자 등록번호를 입력하세요.' onChange={(e)=>{setLicense(e.target.value)}}/>
@@ -40,16 +38,16 @@ const MyPage = () => {
                 <br/>
                 <span>변경하실 서비스를 선택해주세요.</span> <br/>
                 <div key={"SystemCheck"} className="formCheckbox">
-                    <input type="checkbox" name="system" value="1"/>태양열 발전 + 냉난방 제어<br/>
-                    <input type="checkbox" name="system" value="2"/>태양열 발전 + 간판/조명 제어<br/>
-                    <input type="checkbox" name="system" value="all"/>모든 서비스 이용<br/>
+                    <input type="checkbox" name="system" value="1"/> 태양열 발전 + 냉난방 제어<br/>
+                    <input type="checkbox" name="system" value="2"/> 태양열 발전 + 간판/조명 제어<br/>
+                    <input type="checkbox" name="system" value="all"/> 모든 서비스 이용<br/>
                 </div>
                 <br/><br/>
                 <span>결제정보 수정</span><br/>
                 <input type="password" name="PW" placeholder='변경하실 카드번호를 입력해주세요.' onChange={(e)=>{setPay(e.target.value)}}/>
                 <br/>
                 <div className='button-container-2'>
-                    <span>점포 관리</span><br/>
+                    <strong>점포 관리</strong><br/>
                     <span>점포 선택</span>{'   '}
                     <select name="store">
                         <option value="1">1번 가게</option>
@@ -64,11 +62,11 @@ const MyPage = () => {
                 </div>
             </form>
         <div className="button-container-onclick">
-                <button onClick={()=>{window.location.href="/"}}>메인으로</button>  
-                <button onClick={()=>{window.location.href="/index"}}>서비스화면으로</button>  
+            <button onClick={()=>{window.location.href="/"}}>메인으로</button>  
+            <button onClick={()=>{window.location.href="/index"}}>서비스화면으로</button>  
         </div>
             </div>
-        </div>
+    </div>
   )
 }
 

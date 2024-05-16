@@ -3,15 +3,12 @@ import { Form, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import AccordionMenu from './AccordionMenu';
 import ReactDOM from 'react-dom'
-// import { faStore } from "react-icons/fa";
 
-
-const Light = () => {
+const Solar = () => {
     const getstringDate = (date)=>{
         return date.toISOString().slice(0,10);
     }
     const [date, setDate] = useState(getstringDate(new Date()));
-
 
   return (
     <div>
@@ -24,24 +21,25 @@ const Light = () => {
             <div className='indexInfo'>
                 <h5 className='indexTitle'>아이스크림 남구점</h5>
                 <input className="inputDate" type="date" value={date} onChange={(e)=>{setDate(e.target.value)}}></input>
-                
+                <br/>
+                <span className='indexTitle'>태양열 번호 : sakdjfhgakfdgh</span>
             </div>
             <div className="indexDiv">
                 <br/>
                 <div className='indexContent'>
-                    <h5>간판 밝기</h5>
+                    <h5>전력량</h5>
                     <h3>25 Lux</h3>
                     <p>2% 🔺</p>
                     <img src="https://cdn-icons-png.flaticon.com/128/4721/4721635.png"/>
                 </div>
                 <div className='indexContent'>
-                    <h5>외부 밝기</h5>
+                    <h5>전력 사용량</h5>
                     <h3>25 Lux</h3>
                     <p>2% 🔺</p>
                     <img src="https://cdn-icons-png.flaticon.com/128/4721/4721635.png"/>
                 </div>
                 <div className='indexContent'>
-                    <h5>목표 밝기</h5>
+                    <h5>배터리량</h5>
                     <h3>25 Lux</h3>
                     <p>2% 🔺</p>
                     <img src="https://cdn-icons-png.flaticon.com/128/4721/4721635.png"/>
@@ -64,9 +62,10 @@ const Light = () => {
             <button onClick={()=>{window.location.href="/mypage"}}>정보수정</button>  
         </div>
         </div>
-    </div>
 
+
+    </div>
   )
 }
 
-export default Light
+export default Solar

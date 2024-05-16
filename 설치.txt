@@ -5,3 +5,7 @@
 2. react-icons 아이콘 불러오기
     npm install react-icons --save
     import {아이콘 이름} from "react-icons/ri";
+
+3. fonot awesome 아이콘
+    npm install react-icons --save
+
