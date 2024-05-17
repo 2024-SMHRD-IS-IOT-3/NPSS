@@ -27,14 +27,14 @@ const Join = () => {
           <h4>회원가입</h4>
             <form className="formTag" onSubmit={handleJoin}>
                 <span>ID</span> <br/>
-                <input type="text" name="ID" placeholder='아이디를 입력하세요.' onChange={(e)=>{setId(e.target.value)}}/>
+                <input type="text" className="formInput" name="ID" placeholder='아이디를 입력하세요.' onChange={(e)=>{setId(e.target.value)}}/>
                 <br/>
                 <span>Password</span><br/>
-                <input type="password" name="PW" placeholder='비밀번호를 입력하세요.' onChange={(e)=>{setPw(e.target.value)}}/>
+                <input type="password" className="formInput" name="PW" placeholder='비밀번호를 입력하세요.' onChange={(e)=>{setPw(e.target.value)}}/>
                 <span>Password  확인</span><br/>
-                <input type="password" name="CheckPW" placeholder='비밀번호를 다시 한 번 입력하세요.' onChange={(e)=>{setCheckPw(e.target.value)}}/>
+                <input type="password" className="formInput" name="CheckPW" placeholder='비밀번호를 다시 한 번 입력하세요.' onChange={(e)=>{setCheckPw(e.target.value)}}/>
                 <span>email</span> <br/>
-                <input type="email" name="email" placeholder='이메일을 입력하세요.' onChange={(e)=>{setEmail(e.target.value)}}/>
+                <input type="email" className="formInput" name="email" placeholder='이메일을 입력하세요.' onChange={(e)=>{setEmail(e.target.value)}}/>
 
 
                 <div className="button-container">

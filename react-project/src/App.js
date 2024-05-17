@@ -15,9 +15,12 @@ import Footer from './components/Footer';
 import Solar from './components/Solar';
 import Sign from './components/Sign';
 import Cooler from './components/Cooler';
+import { useState } from 'react';
+// import License from './components/License';
 
 
 function App() {
+  const [licenseNum, setLicenseNum] = useState();
   return (
     <div className="App">
       <Nav/>
@@ -28,11 +31,12 @@ function App() {
         <Route path="/join" element={<Join/>}></Route>
         <Route path="/index" element={<Index/>}></Route>
         <Route path="/check" element={<Check/>}></Route>
-        <Route path="/mypage" element={<MyPage/>}></Route>
+        <Route path="/mypage" element={<MyPage licenseNum={licenseNum} setLicenseNum={setLicenseNum}/>}></Route>
         <Route path="/light" element={<Light/>}></Route>
         <Route path="/solar" element={<Solar/>}></Route>
         <Route path="/cooler" element={<Cooler/>}></Route>
         <Route path="/sign" element={<Sign/>}></Route>
+        {/* <Route path="/license" element={<License/>}></Route> */}
 
       </Routes>
       <Footer/>

@@ -70,5 +70,9 @@ router.post('/handleLogin', async (req, res)=>{
     }
 })
 
+// 사업자등록번호
+router.post("/mypage", (req, res)=>{
+    console.log("license router", req.body);
+})
 
 module.exports = router;

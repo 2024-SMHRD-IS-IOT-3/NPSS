@@ -20,6 +20,7 @@ const Login = () => {
             console.log(res.data);
             if(res.data.length > 0){
                 alert(`${res.data[0]}님 환영합니다.`);
+                sessionStorage.setItem('user', JSON.stringify(res.data));
                 window.location.href="/index";
             } else {
                 alert('아이디 혹은 비밀번호가 틀립니다!');
@@ -43,10 +44,10 @@ const Login = () => {
         <div className='formBox'>
             <form className="formTag" onSubmit={handleLogin}>
                 <span>ID</span> <br/>
-                <input type="text" name="ID" placeholder='아이디를 입력하세요.' onChange={(e)=>{setId(e.target.value)}}/>
+                <input type="text" className="formInput" name="ID" placeholder='아이디를 입력하세요.' onChange={(e)=>{setId(e.target.value)}}/>
                 <br/>
                 <span>Password</span> <br/>
-                <input type="password" name="PW" placeholder='비밀번호를 입력하세요.' onChange={(e)=>{setPw(e.target.value)}}/>
+                <input type="password" className="formInput" name="PW" placeholder='비밀번호를 입력하세요.' onChange={(e)=>{setPw(e.target.value)}}/>
 
 
                 <div className="button-container">

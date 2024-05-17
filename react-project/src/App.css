@@ -14,12 +14,14 @@
   padding-left: 20px;
   margin-top: 8px ;
   margin-right: 5%;
+  margin-left: 5%;
   display: inline-block;
   /* border: 1px solid #ccc; */
   border-radius: 4px;
   box-sizing: border-box;
 }
-.formTag>input {
+/* (구) .formTag>input*/
+.formInput {
   display: inline-block;
   width: 100%;
   border: 1px solid rgb(17, 82, 147);
@@ -86,10 +88,8 @@
 /* 따로 빼져있는 버튼들 */
 .button-container-onclick { 
   width: 100%;
-  padding-bottom: 12px;
-  padding-right: 20px;
-  padding-left: 20px;
-  margin-bottom: 8px ;
+  padding-right: 10px;
+  padding-left: 30px;
   display: inline-block;
   /* border: 1px solid #ccc; */
   border-radius: 4px;
@@ -103,7 +103,7 @@
   border-radius: 5px;
   width: 84.25%;
   height: 40px;
-  margin: 10px;
+  margin-left: 5%;
 }
 .button-container-onclick>button:hover {
   background-color: white;
@@ -190,14 +190,15 @@ li.panelLi>a {
   float: left;
   width: 100%;
   padding: 0 18px;
+  /* 필수 */
   background-color: rgb(17, 82, 147);
-  display: none;
+  padding: 0 18px;
   overflow: hidden;
-  /* max-height: 0; */
+  max-height: 0; 
   transition: max-height 0.2s ease-out;
 }
 .accordion:after {
-  content: '\0271A'; /* Unicode character for "plus" sign (+) */
+  content: '\0271A'; /* 유니코드 플러스 */
   color: whitesmoke;
   font-size: 13px;
   display: block;
@@ -210,7 +211,7 @@ li.panelLi>a {
 .active:after {
   display: flex;
   float: right;
-  content: "\2212"; /* Unicode character for "minus" sign (-) */
+  content: "\2212"; /* 유니코드 마이너스*/
   color: whitesmoke;
   font-weight: bold;
   /* text-shadow: 0 0 0 red; */
@@ -231,6 +232,12 @@ button>a{
 }
 button>a:hover{
   color: white;
+}
+
+/* 마이페이지 사업자 등록 번호 */
+.licenseInput {
+  width: 100%;
+  margin: 5px;
 }
 
 /* index 페이지 그래프들 */

@@ -17,11 +17,20 @@ const AccordionMenu = () => {
 
       /* Toggle between hiding and showing the active panel */
       var panel = this.nextElementSibling;
+
       if (panel.style.display === "block") {
         panel.style.display = "none";
       } else {
         panel.style.display = "block";
       }
+
+      /* animated (slide down)
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+      */
     });
 
 
