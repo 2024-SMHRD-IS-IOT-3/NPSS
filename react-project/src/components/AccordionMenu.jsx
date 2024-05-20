@@ -1,43 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import '../Nav.css';
 import { MdOutlineStorefront } from "react-icons/md";
 import { HiHome } from "react-icons/hi2";
+import axios from '../axios'
 
 const AccordionMenu = () => {
-
   var acc = document.getElementsByClassName("accordion");
   var i;
 
   for (i = 0; i < acc.length; i++) {
     acc[i].addEventListener("click", function() {
-      /* Toggle between adding and removing the "active" class,
-      to highlight the button that controls the panel */
       this.classList.toggle("active");
-
-      /* Toggle between hiding and showing the active panel */
       var panel = this.nextElementSibling;
-
-      if (panel.style.display === "block") {
-        panel.style.display = "none";
-      } else {
-        panel.style.display = "block";
-      }
-
-      /* animated (slide down)
       if (panel.style.maxHeight) {
         panel.style.maxHeight = null;
       } else {
         panel.style.maxHeight = panel.scrollHeight + "px";
       }
-      */
     });
+  }
 
-
-}
-   
-    return (
-      <div className="accordionDiv">
+  return (
+    <div className="accordionDiv">
         <button className="accordion">
         <HiHome color='whitesmoke' size='18px'/><span> Home</span>
         </button>
@@ -84,12 +69,9 @@ const AccordionMenu = () => {
               <li className="panelLi"><Link to={'/cooler'}>냉난방장치</Link></li>
             </ul>
             </div>
-          
-          
-      
+
     </div>
-    );
-    
-  };
+  )
+}
 
 export default AccordionMenu

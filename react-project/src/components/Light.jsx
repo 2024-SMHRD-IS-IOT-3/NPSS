@@ -1,26 +1,78 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import AccordionMenu from './AccordionMenu';
 import ReactDOM from 'react-dom'
-// import { faStore } from "react-icons/fa";
-
+import axios from '../axios'
+import '../Nav.css';
+import { MdOutlineStorefront } from "react-icons/md";
+import { HiHome } from "react-icons/hi2";
 
 const Light = () => {
+    const [storeNum, setStoreNum] = useState();
+
+  
     const getstringDate = (date)=>{
         return date.toISOString().slice(0,10);
     }
     const [date, setDate] = useState(getstringDate(new Date()));
+    
+    // const [tempData, setTempData] = useState('');
+    const [lightData, setLightData] = useState('');
+
+    // const handleLight = (e) =>{
+    //     e.preventDefault();
+    //     console.log('handle Light function',  lightData);
+
+    //     axios.post('/handleLight', {
+    //         storeNum :storeNum
+    //     })
+    //     .then(res => {
+    //         console.log('then',res.data);
+
+    //         // if(res.data.length > 0){
+    //         //     alert(`${res.data[0]}님 환영합니다.`);
+    //         //     sessionStorage.setItem('user', JSON.stringify(res.data));
+    //         //     window.location.href="/index";
+    //         // } else {
+    //         //     alert('아이디 혹은 비밀번호가 틀립니다!');
+    //         // }
+    //     })
+    //     .catch((error)=>{
+    //         console.error('Error:', error);
+    //         alert('로그인에 실패하였습니다.');
+    //     })
+    // }
+
+    useEffect(()=>{
+        console.log('handle Light function',  lightData);
+  
+        axios.post('/handleLight', {
+            storeIdx : 1
+        })
+        .then(res => {
+            console.log('storeIdx', res.data.storeIdx)
+            console.log('then', res.data.lightData[0]);
+            setLightData(res.data.lightData[0]);
+  
+        })
+        .catch((error)=>{
+            console.error('Error:', error);
+            alert('접속 실패하였습니다.');
+        })
+      },[])
+     
+
 
 
   return (
     <div>
-        <div className="indexHeader">
-            <Link to="/"><img className="indexLogo2" src='img/NPSS_logo2.png' alt='이미지 준비중...'/></Link>
+        <div className="header">
+            <Link to="/"><img className="logo2" src='img/NPSS_logo2.png' alt='이미지 준비중...'/></Link>
         </div>
 
         <div className='contentPage'>
-            <AccordionMenu/>
+        <AccordionMenu/>
             <div className='indexInfo'>
                 <h5 className='indexTitle'>아이스크림 남구점</h5>
                 <input className="inputDate" type="date" value={date} onChange={(e)=>{setDate(e.target.value)}}></input>
@@ -28,45 +80,23 @@ const Light = () => {
             </div>
             <div className="indexDiv">
                 <br/>
-                <div className='indexContent1'>
-                    <h5>주간 현황</h5>
-                    <div className='indexSmallDiv'>
-                        <div>
-                            <h5>평균 사용량</h5>
-                            <h3>25 Lux</h3>
-                            <p>2% 🔺</p>
-                        </div>
-                        <div>
-                            <h5>현재 사용량</h5>
-                            <h3>25 Lux</h3>
-                            <p>2% 🔺</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div className='indexContent2'>
-                    <h5>간판 밝기</h5>
-                    <h3>25 Lux</h3>
+                <div className='indexContent'>
+                    <h5>온도 데이터</h5>
+                    <h3>tempData</h3>
                     <p>2% 🔺</p>
-                    {/* <img src="https://cdn-icons-png.flaticon.com/128/4721/4721635.png"/> */}
+                    <img src="https://cdn-icons-png.flaticon.com/128/4721/4721635.png"/>
                 </div>
-                <div className='indexContent2'>
-                    <h5>외부 밝기</h5>
-                    <h3>25 Lux</h3>
+                <div className='indexContent'>
+                    <h5>밝기 데이터</h5>
+                    <h3>{lightData}</h3>
                     <p>2% 🔺</p>
-                    {/* <img src="https://cdn-icons-png.flaticon.com/128/4721/4721635.png"/> */}
+                    <img src="https://cdn-icons-png.flaticon.com/128/4721/4721635.png"/>
                 </div>
-                <div className='indexContent2'>
+                <div className='indexContent'>
                     <h5>목표 밝기</h5>
                     <h3>25 Lux</h3>
                     <p>2% 🔺</p>
-                    {/* <img src="https://cdn-icons-png.flaticon.com/128/4721/4721635.png"/> */}
-                </div>
-                <div className='indexContent2'>
-                    <h5>목표 밝기</h5>
-                    <h3>25 Lux</h3>
-                    <p>2% 🔺</p>
-                    {/* <img src="https://cdn-icons-png.flaticon.com/128/4721/4721635.png"/> */}
+                    <img src="https://cdn-icons-png.flaticon.com/128/4721/4721635.png"/>
                 </div>
                 <br/>
                 <div className='indexGraph'>
@@ -87,7 +117,7 @@ const Light = () => {
         </div>
         </div>
     </div>
-
+ 
   )
 }
 

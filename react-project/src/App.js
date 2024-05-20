@@ -11,7 +11,6 @@ import Check from './components/Check';
 import MyPage from './components/MyPage';
 import Nav from './components/Nav';
 import Light from './components/Light';
-import Footer from './components/Footer';
 import Solar from './components/Solar';
 import Sign from './components/Sign';
 import Cooler from './components/Cooler';
@@ -39,7 +38,6 @@ function App() {
         {/* <Route path="/license" element={<License/>}></Route> */}
 
       </Routes>
-      <Footer/>
     </div>
   );
 }

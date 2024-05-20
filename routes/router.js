@@ -58,7 +58,7 @@ router.post('/handleLogin', async (req, res)=>{
         const connection = await connectToOracle(); // 데이터베이스 연결 객체를 가져옴
         let sql = `SELECT USER_ID FROM USER_INFO WHERE USER_ID =:1 AND USER_PW =:2`;
         result = await connection.execute(sql, [id, pw]); 
-        console.log(result.rows);
+        console.log("로그인정보",result.rows);
         if (result.rows.length > 0) {
             res.send(result.rows);
         } else {
@@ -74,5 +74,68 @@ router.post('/handleLogin', async (req, res)=>{
 router.post("/mypage", (req, res)=>{
     console.log("license router", req.body);
 })
+
+// Route for temperature and light data
+router.post('/handleLight', async (req, res) => {
+
+    let {storeIdx} = req.body;
+    try{
+        const connection = await connectToOracle();
+        let sql = `SELECT LIGHT_BRITENESS FROM LIGHT_INFO WHERE STORE_IDX=:1`;
+
+        result = await connection.execute(sql,[storeIdx]);
+        res.json({lightData : result.rows, storeIdx : storeIdx});
+
+    } catch (err){
+        console.error('Error executing query:', err);
+        res.status(500).send({ result: 'fail' });
+    }
+
+  }); 
+
+  router.post('/data', async (req, res) => {
+    const tempData = req.body.temperature;
+    // const lightData = req.body.light;
+    const solarData= req.body.solar;
+    
+    if (tempData !== undefined) {
+      console.log('Received temperature data from Raspberry Pi:', tempData);
+      await insertDataIntoOracle('AIRCON_INFO','CURR_TEMP', tempData);
+    }
+    
+    // if (lightData !== undefined) {
+    //   console.log('Received light data from Raspberry Pi:', lightData);
+    //   await insertDataIntoOracle('LIGHT_TABLE', lightData);
+    // }
+  
+    if (solarData!==undefined){
+      console.log('Received solar data from Raspberry Pi:', solarData);
+      await insertDataIntoOracle('SOLAR_INFO','SOLAR_WATT',solarData);
+    }
+    
+    res.json({ message: 'Data received and inserted into Oracle database successfully' });
+  
+  
+  // Function to insert data into Oracle database
+  async function insertDataIntoOracle(tableName,dataColumn, data) {
+    try {
+      // Connect to the Oracle database
+      const connection = await connectToOracle();
+  
+      // Construct the SQL query
+      const sql = `INSERT INTO ${tableName} (${dataColumn}) VALUES (:val)`;
+  
+      // Execute the query
+      const result = await connection.execute(sql, [data], { autoCommit: true });
+  
+      // Close the connection
+      await connection.close();
+  
+      console.log(`Data inserted into ${tableName} table:`, data);
+    } catch (error) {
+      console.error('Error inserting data into Oracle database:', error);
+    }
+  }
+});
 
 module.exports = router;

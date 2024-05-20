@@ -6,7 +6,6 @@ function Nav() {
     return (
         <div>
             <div className='navbar'>
-                
             </div>
         </div>
     )

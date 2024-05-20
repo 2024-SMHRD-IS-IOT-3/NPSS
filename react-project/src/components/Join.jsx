@@ -24,7 +24,8 @@ const Join = () => {
         {/* <AccordionMenu/> */}
 
         <div className='formBox'>
-          <h4>회원가입</h4>
+          <h1>회원가입</h1>
+          {/* <h5>아이디, 비밀번호를 입력해주세요. </h5> */}
             <form className="formTag" onSubmit={handleJoin}>
                 <span>ID</span> <br/>
                 <input type="text" className="formInput" name="ID" placeholder='아이디를 입력하세요.' onChange={(e)=>{setId(e.target.value)}}/>

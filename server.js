@@ -4,6 +4,23 @@ const router = require("./routes/router");
 const path = require('path');
 const cors = require('cors');
 
+// 라파 통신
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
+// Route for temperature and light data
+/*
+app.post('/index', (req, res) => {
+  const tempData = req.body.temperature; // Corrected key to access temperature data
+  const lightData = req.body.light; // Corrected key to access light data
+
+  console.log('Received temperature data from Raspberry Pi:', tempData);
+  console.log('Received light data from Raspberry Pi:', lightData);
+
+  res.json({ message: 'Temperature & Light data received successfully' });
+});
+*/
+
 // CORS 오류를 방지하기 위한 모듈
 app.use(cors());
 
