@@ -83,9 +83,10 @@ const AccordionMenu = () => {
               <li className="panelLi"><Link to={'/solar'}>태양열</Link></li>
               <li className="panelLi"><Link to={'/cooler'}>냉난방장치</Link></li>
             </ul>
-
-          <div className='accordionEmpty'></div>
-      </div>
+            </div>
+          
+          
+      
     </div>
     );
     

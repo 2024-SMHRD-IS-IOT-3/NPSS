@@ -15,8 +15,8 @@ const Light = () => {
 
   return (
     <div>
-        <div className="header">
-            <Link to="/"><img className="logo2" src='img/NPSS_logo2.png' alt='이미지 준비중...'/></Link>
+        <div className="indexHeader">
+            <Link to="/"><img className="indexLogo2" src='img/NPSS_logo2.png' alt='이미지 준비중...'/></Link>
         </div>
 
         <div className='contentPage'>
@@ -28,23 +28,45 @@ const Light = () => {
             </div>
             <div className="indexDiv">
                 <br/>
-                <div className='indexContent'>
+                <div className='indexContent1'>
+                    <h5>주간 현황</h5>
+                    <div className='indexSmallDiv'>
+                        <div>
+                            <h5>평균 사용량</h5>
+                            <h3>25 Lux</h3>
+                            <p>2% 🔺</p>
+                        </div>
+                        <div>
+                            <h5>현재 사용량</h5>
+                            <h3>25 Lux</h3>
+                            <p>2% 🔺</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div className='indexContent2'>
                     <h5>간판 밝기</h5>
                     <h3>25 Lux</h3>
                     <p>2% 🔺</p>
-                    <img src="https://cdn-icons-png.flaticon.com/128/4721/4721635.png"/>
+                    {/* <img src="https://cdn-icons-png.flaticon.com/128/4721/4721635.png"/> */}
                 </div>
-                <div className='indexContent'>
+                <div className='indexContent2'>
                     <h5>외부 밝기</h5>
                     <h3>25 Lux</h3>
                     <p>2% 🔺</p>
-                    <img src="https://cdn-icons-png.flaticon.com/128/4721/4721635.png"/>
+                    {/* <img src="https://cdn-icons-png.flaticon.com/128/4721/4721635.png"/> */}
                 </div>
-                <div className='indexContent'>
+                <div className='indexContent2'>
                     <h5>목표 밝기</h5>
                     <h3>25 Lux</h3>
                     <p>2% 🔺</p>
-                    <img src="https://cdn-icons-png.flaticon.com/128/4721/4721635.png"/>
+                    {/* <img src="https://cdn-icons-png.flaticon.com/128/4721/4721635.png"/> */}
+                </div>
+                <div className='indexContent2'>
+                    <h5>목표 밝기</h5>
+                    <h3>25 Lux</h3>
+                    <p>2% 🔺</p>
+                    {/* <img src="https://cdn-icons-png.flaticon.com/128/4721/4721635.png"/> */}
                 </div>
                 <br/>
                 <div className='indexGraph'>

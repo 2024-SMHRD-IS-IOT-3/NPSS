@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import axios from '../axios'
 import { Link } from 'react-router-dom';
-// import AccordionMenu from './AccordionMenu';
+import { IoPerson } from "react-icons/io5";
+import { IoIosLock } from "react-icons/io";
 
 const Login = () => {
-
+    let loginIcon = <IoPerson />;
     const [id, setId] = useState();
     const [pw, setPw] = useState();
 
@@ -38,25 +39,25 @@ const Login = () => {
         <div>
         <Link to="/"><img className="logo2" src='img/NPSS_logo2.png' alt='이미지 준비중...'/></Link>
         </div>
-        {/* <AccordionMenu/> */}
-        <h4>로그인</h4>
 
         <div className='formBox'>
+            <h1>로그인</h1>
+            <h5>아이디, 비밀번호를 입력해주세요. </h5>
             <form className="formTag" onSubmit={handleLogin}>
-                <span>ID</span> <br/>
-                <input type="text" className="formInput" name="ID" placeholder='아이디를 입력하세요.' onChange={(e)=>{setId(e.target.value)}}/>
+                <IoPerson/>
+                <input type="text" className="formInput" name="ID" placeholder='아이디' onChange={(e)=>{setId(e.target.value)}}/>
                 <br/>
-                <span>Password</span> <br/>
-                <input type="password" className="formInput" name="PW" placeholder='비밀번호를 입력하세요.' onChange={(e)=>{setPw(e.target.value)}}/>
-
+                <IoIosLock />
+                <input type="password" className="formInput" name="PW" placeholder='비밀번호' onChange={(e)=>{setPw(e.target.value)}}/>
 
                 <div className="button-container">
                     <button type="submit" className="btn">로그인</button>
                 </div>
             </form>
-            <div className="button-container-onclick">
-                    <button onClick={()=>{window.location.href="/"}}>메인으로</button>  
-            </div>
+            <hr/>
+            <span className='loginSpan'><Link to={'/join'}>회원가입 | </Link></span>
+            <span className='loginSpan'><Link to={'/join'}>아이디 찾기 | </Link></span>
+            <span className='loginSpan'><Link to={'/join'}>비밀번호 찾기</Link></span>
         </div>
 
     </div>

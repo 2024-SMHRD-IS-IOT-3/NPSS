@@ -6,11 +6,7 @@ function Nav() {
     return (
         <div>
             <div className='navbar'>
-                <Link className='navbarMenu' to={'/'}>Main</Link>
-                <div className='navbarMenu' onClick={()=>{
-                    sessionStorage.removeItem('user');
-                    window.location.href="/login";
-                }}>Logout</div>
+                
             </div>
         </div>
     )
