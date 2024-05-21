@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const connectToOracle  = require('../config/db'); // 데이터베이스 연결 객체를 가져옴
 const path = require('path');
+const PORT = process.env.PORT || 3000;
+const HOST = process.env.HOST || '0.0.0.0';
 
 // 메인 경로
 router.post('/', (req, res) => {

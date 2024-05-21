@@ -22,7 +22,7 @@ const Login = () => {
             if(res.data.length > 0){
                 alert(`${res.data[0]}님 환영합니다.`);
                 sessionStorage.setItem('user', JSON.stringify(res.data));
-                window.location.href="/index";
+                window.location.href="/light";
             } else {
                 alert('아이디 혹은 비밀번호가 틀립니다!');
             }
@@ -44,11 +44,15 @@ const Login = () => {
             <h1>로그인</h1>
             <h5>아이디, 비밀번호를 입력해주세요. </h5>
             <form className="formTag" onSubmit={handleLogin}>
-                <IoPerson/>
-                <input type="text" className="formInput" name="ID" placeholder='아이디' onChange={(e)=>{setId(e.target.value)}}/>
+                <div className="inputWithIcon">
+                    <IoPerson/>
+                    <input type="text" className="formInput" name="ID" placeholder='아이디' value={id} onChange={(e)=>{setId(e.target.value)}}/>
+                </div>
                 <br/>
-                <IoIosLock />
-                <input type="password" className="formInput" name="PW" placeholder='비밀번호' onChange={(e)=>{setPw(e.target.value)}}/>
+                <div className="inputWithIcon">
+                    <IoIosLock />
+                    <input type="password" className="formInput" name="PW" placeholder='비밀번호' value={pw} onChange={(e)=>{setPw(e.target.value)}}/>
+                </div>
 
                 <div className="button-container">
                     <button type="submit" className="btn">로그인</button>
@@ -61,6 +65,7 @@ const Login = () => {
         </div>
 
     </div>
+
   )
 }
 

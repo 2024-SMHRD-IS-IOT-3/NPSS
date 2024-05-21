@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Component } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import AccordionMenu from './AccordionMenu';
@@ -7,6 +7,11 @@ import axios from '../axios'
 import '../Nav.css';
 import { MdOutlineStorefront } from "react-icons/md";
 import { HiHome } from "react-icons/hi2";
+import ApexCharts from 'apexcharts';
+// import { makeStyles, createStyles, Theme, useTheme } from '@material-ui/core/styles';
+import ReactApexChart from "react-apexcharts";
+import Chart from "react-apexcharts";
+
 
 const Light = () => {
     const [storeNum, setStoreNum] = useState();
@@ -20,29 +25,6 @@ const Light = () => {
     // const [tempData, setTempData] = useState('');
     const [lightData, setLightData] = useState('');
 
-    // const handleLight = (e) =>{
-    //     e.preventDefault();
-    //     console.log('handle Light function',  lightData);
-
-    //     axios.post('/handleLight', {
-    //         storeNum :storeNum
-    //     })
-    //     .then(res => {
-    //         console.log('then',res.data);
-
-    //         // if(res.data.length > 0){
-    //         //     alert(`${res.data[0]}님 환영합니다.`);
-    //         //     sessionStorage.setItem('user', JSON.stringify(res.data));
-    //         //     window.location.href="/index";
-    //         // } else {
-    //         //     alert('아이디 혹은 비밀번호가 틀립니다!');
-    //         // }
-    //     })
-    //     .catch((error)=>{
-    //         console.error('Error:', error);
-    //         alert('로그인에 실패하였습니다.');
-    //     })
-    // }
 
     useEffect(()=>{
         console.log('handle Light function',  lightData);
@@ -61,63 +43,131 @@ const Light = () => {
             alert('접속 실패하였습니다.');
         })
       },[])
-     
 
-
-
+      
+            
   return (
     <div>
-        <div className="header">
-            <Link to="/"><img className="logo2" src='img/NPSS_logo2.png' alt='이미지 준비중...'/></Link>
+        <div className="indexHeader">
+            <Link to="/"><img className="indexLogo2" src='img/NPSS_logo3.png' alt='이미지 준비중...'/></Link>
+            <img className="indeximg" src="img/sign_out.png" alt="이미지 준비중..."onClick={()=>{
+                sessionStorage.removeItem('user');
+                window.location.href="/login";}}/>
+            <img className="indeximg" src="img/user.png" alt="이미지 준비중..." onClick={()=>{window.location.href="/mypage"}}/>
+            <img className="indeximg" src="img/chart_line_up.png" alt="이미지 준비중..." onClick={()=>{window.location.href="/light"}}/>
         </div>
 
-        <div className='contentPage'>
-        <AccordionMenu/>
-            <div className='indexInfo'>
-                <h5 className='indexTitle'>아이스크림 남구점</h5>
-                <input className="inputDate" type="date" value={date} onChange={(e)=>{setDate(e.target.value)}}></input>
-                
+        <div className="contentPage">
+        <AccordionMenu />
+
+        <div className="indexDiv">
+            <div className="indexInfo">
+                <h5 className="indexTitle">아이스크림 남구점</h5>
+                <input className="inputDate" type="date" value={date} onChange={(e) => setDate(e.target.value)} />
             </div>
-            <div className="indexDiv">
-                <br/>
-                <div className='indexContent'>
-                    <h5>온도 데이터</h5>
-                    <h3>tempData</h3>
-                    <p>2% 🔺</p>
-                    <img src="https://cdn-icons-png.flaticon.com/128/4721/4721635.png"/>
-                </div>
-                <div className='indexContent'>
-                    <h5>밝기 데이터</h5>
-                    <h3>{lightData}</h3>
-                    <p>2% 🔺</p>
-                    <img src="https://cdn-icons-png.flaticon.com/128/4721/4721635.png"/>
-                </div>
-                <div className='indexContent'>
-                    <h5>목표 밝기</h5>
-                    <h3>25 Lux</h3>
-                    <p>2% 🔺</p>
-                    <img src="https://cdn-icons-png.flaticon.com/128/4721/4721635.png"/>
-                </div>
-                <br/>
-                <div className='indexGraph'>
-                    <img src='https://search.pstatic.net/sunny/?src=https%3A%2F%2Fimg3.tmon.kr%2Fcdn4%2Fdeals%2F2023%2F09%2F09%2F22982326658%2F22982326658_front_df4952f9de.jpg&type=sc960_832'></img>
+
+
+            <div className='contentBox'>
+                <div className="indexContent1">
+                    <h5>주간 현황</h5>
+                    <div className="indexSmallDiv">
+                    <div>
+                        <h5>평균 사용량</h5>
+                        <div className='contentWrapper'>
+                            <div className='circle'></div>
+                            <h3>25 Lux</h3>
+                        </div>
+                    </div>
+                    <div>
+                        <h5>현재 사용량</h5>
+                        <div className='contentWrapper'>
+                            <div className='circle2'></div>
+                            <h3>25 Lux</h3>
+                        </div>
+                    </div>
+                    </div>
                 </div>
 
+            <div className="indexDiv2">
+                <div>
+                    <div className="indexContent2">
+                        <h5>현재 밝기</h5>
+                        <h3>{lightData} Lux</h3>
+                        <p>2% 🔺</p>
+                    </div>
+                    <div className="indexContent2">
+                        <h5>외부 밝기</h5>
+                        <h3>25 Lux</h3>
+                        <p>2% 🔺</p>
+                    </div>
+                </div>
+                <div>
+                    <div className="indexContent2">
+                        <h5>목표 밝기</h5>
+                        <h3>25 Lux</h3>
+                        <p>2% 🔺</p>
+                    </div>
+                    <div className="indexContent2">
+                        <h5>목표 밝기</h5>
+                        <h3>25 Lux</h3>
+                        <p>2% 🔺</p>
+                    </div>
+                </div>
+            </div>
+          </div>
+                <div className='indexGraph'>
+                    <h5>누적 현황</h5>
+                    <Chart
+                        type="line"
+                        series={[{
+                            name: "Session Duration",
+                            data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
+                          },
+                          {
+                            name: "Page Views",
+                            data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35]
+                          },
+                          {
+                            name: 'Total Visits',
+                            data: [87, 57, 74, 99, 75, 38, 62, 47, 82, 56, 45, 47]
+                          }
+                            
+                        ]}
+                        options={{
+                            chart: {
+                                height: 350,
+                                type: 'line',
+                                zoom: {
+                                  enabled: false
+                                }
+                              },
+                              
+                              title: {
+                                text: 'Product Trends by Month',
+                                align: 'left'
+                              },
+                              xaxis: {
+                                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep','Oct','Nov','Dec'],
+                              },
+                              theme: {
+                                mode: 'light', 
+                                palette: 'palette10', 
+                                monochrome: {
+                                    enabled: false,
+                                    color: '#255aee',
+                                    shadeTo: 'light',
+                                    shadeIntensity: 0.65
+                                },
+                                
+                        }}
+                    }/>
+                            
+                </div>
         </div>
         <br/><br/>
 
-        <div className="button-container-2">
-            <button onClick={()=>{window.location.href="/"}}>메인으로</button>  
-        </div>
-        <div className="button-container-2">
-            <button onClick={()=>{window.location.href="/login"}}>로그인</button>  
-        </div>
-        <div className="button-container-2">
-            <button onClick={()=>{window.location.href="/mypage"}}>정보수정</button>  
-        </div>
-        </div>
     </div>
- 
+    </div>
   )
 }
 

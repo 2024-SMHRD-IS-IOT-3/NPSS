@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { Form, Button } from 'react-bootstrap'
-// import axios from '../axios'
+import axios from '../axios'
 import { Link } from 'react-router-dom';
-// import AccordionMenu from './AccordionMenu';
 
 const Join = () => {
 
@@ -14,6 +13,29 @@ const Join = () => {
   const handleJoin = (e)=>{
     e.preventDefault(); 
     console.log('handle join function');
+    // console.log('✅ ID:', id);    
+    // console.log('✅ Password:', pw);    
+    // console.log('✅ checkPw:', checkPw);    
+    // console.log('✅ email:', email);    
+    // 비밀번호 확인    
+    if (pw !== checkPw) {
+      alert('비밀번호가 일치하지 않습니다.');
+      return;
+    }
+      axios.post('/handleJoin', {
+        id : id,
+        pw : pw,
+        email : email })
+        .then((res) => {
+          console.log(res.data)
+          if (res.data.result === "success") {
+            alert('가입을 축하합니다.');
+            window.location.href = "/";
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          alert('가입 중 오류가 발생했습니다.'); });
   }
 
   return (
@@ -21,7 +43,6 @@ const Join = () => {
         <div className='header'>
           <Link to="/"><img className="logo2" src='img/NPSS_logo2.png' alt='이미지 준비중...'/></Link>
         </div>
-        {/* <AccordionMenu/> */}
 
         <div className='formBox'>
           <h1>회원가입</h1>
@@ -43,7 +64,7 @@ const Join = () => {
                 </div>
             </form>
             <div className="button-container-onclick">
-                    <button onClick={()=>{window.location.href="/"}}>메인으로</button>  
+                    <button onClick={()=>{window.location.href="/"}}>메인화면</button>  
             </div>
         </div>
       </div>

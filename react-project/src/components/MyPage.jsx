@@ -34,13 +34,6 @@ const MyPage = ({ licenseNum, setLicenseNum }) => {
         return data.data[0].b_stt_cd;
         };
 
-    /*    
-    axios.post(url).then((res) => {
-      setLicenseNum(res.data[0].b_stt_cd);
-    });
-    console.log('b_no : ', licenseNum);
-    */
- 
   const license_check = document.getElementsByClassName('checkLicense');
 
   const handlerCheckSchoolNum = useCallback(async () => {
@@ -52,8 +45,8 @@ const MyPage = ({ licenseNum, setLicenseNum }) => {
         setConfirmedSchoolNum(true); 
         console.log('영업중으로 확인됩니다.');
         alert('확인되었습니다.');
-        license_check.style.display = "block";
-
+        license_check[0].style.display = "block";
+        license_check[0].style.color = "rgb(102, 148, 195)";
       } else {
         setConfirmedSchoolNum(false); 
         console.log('휴업, 폐업으로 확인됨');
@@ -69,15 +62,14 @@ const MyPage = ({ licenseNum, setLicenseNum }) => {
     <div>
       <div className="header">
         <Link to="/">
-          <img className="logo2" src="img/NPSS_logo2.png" alt="이미지 준비중..."
-          />
+          <img className="logo2" src="img/NPSS_logo2.png" alt="이미지 준비중..."/>
         </Link>
       </div>
       <div className="mypage_formBox">
         <h1>정보 수정</h1>
         <div className='selectDiv'>
           <h5>점포 관리</h5>
-        <div className="button-container-2">
+        <div className="button-container">
           <span>점포 선택</span>
             {'   '}
             <select name="store">
@@ -87,10 +79,11 @@ const MyPage = ({ licenseNum, setLicenseNum }) => {
             </select>
           </div>
         </div>
+        <br/>
         <hr/>
         <div className="formTag">
           <h5>사업자 등록번호 변경</h5> <br />
-          <input type="text" className="formInput" placeholder='사업자 등록번호를 입력해주세요.' onChange={(e) => {setSchoolNum(e.target.value);}}
+          <input type="text" className="formInput2" placeholder='사업자 등록번호를 입력해주세요.' onChange={(e) => {setSchoolNum(e.target.value);}}
             name="code1"
             defaultValue=""
             size="3"
@@ -124,8 +117,8 @@ const MyPage = ({ licenseNum, setLicenseNum }) => {
           </div>
         </div>
         <hr/>
-            <span className='loginSpan'><Link to={'/'}>메인으로 | </Link></span>
-            <span className='loginSpan'><Link to={'/light'}>서비스 화면으로</Link></span>
+            <span className='loginSpan'><Link to={'/'}>메인 화면 | </Link></span>
+            <span className='loginSpan'><Link to={'/light'}>서비스 화면</Link></span>
       </div>
     </div>
   );
