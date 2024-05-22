@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Modal } from 'react-bootstrap';
 import axios from '../axios';
 import { Link } from 'react-router-dom';
 import AccordionMenu from './AccordionMenu';
 import $ from 'jquery';
+
 const Check = () => {
     // 어떤 서비스 가입할지, 결제, 점포 정보 입력 (사업자등록증 확인)
     const [pw, setPw] = useState('');
@@ -12,6 +13,7 @@ const Check = () => {
   const [license, setLicense] = useState();
   const [schoolNum, setSchoolNum] = useState();
   const [confirmedSchoolNum, setConfirmedSchoolNum] = useState();
+  const [showModal, setShowModal] = useState(false); // 모달 상태
 
   const [storeList, setScoreList] = useState([]);
 
@@ -60,6 +62,13 @@ const Check = () => {
     }
   }, [schoolNum, setSchoolNum, confirmedSchoolNum, setConfirmedSchoolNum]);
 
+  const handleShowModal = () => {
+        setShowModal(true); // 모달 열기
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false); // 모달 닫기
+    };
 
   return (
     <div>
@@ -80,17 +89,23 @@ const Check = () => {
             style={{ imeMode: 'disabled' }}
             maxLength="10"
           />
+          <br />
+          <h5>대표자 성명</h5> <br />
+          <input type='text' className="formInput2" placeholder='대표자 성명을 입력해주세요.'/>
+          <br />
+          <h5>개업일자</h5> <br />
+          <input type='text' className="formInput2" placeholder='개업일자를 입력해주세요.'/>
+          <br />
           <button type="submit" onClick={handlerCheckSchoolNum}>
             인증하기
           </button>
           <span className='checkLicense'>확인되었습니다. </span>
 
-          <br /><br /><br />
+          <br />
           <hr/>
+          <h5>결제하기</h5>
           <br />
-          <h5>결제정보 등록</h5>
-          <br />
-          <input type="password" className="formInput" name="PW" placeholder="등록하실 카드번호를 입력해주세요." onChange={(e) => {setPay(e.target.value); }}/>
+          <button className='btn' onClick={handleShowModal}>결제창</button>
           <br />
           <br />
           <div className="button-container">
@@ -106,6 +121,20 @@ const Check = () => {
                     window.location.href="/login";
                 }}>로그아웃</span>
       </div>
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+            <Modal.Title>결제하기</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+            {/* 여기에 결제 화면을 넣으세요 */}
+            <img src="img/toss.png" alt="결제화면"/>
+        </Modal.Body>
+        <Modal.Footer>
+            <Button variant="secondary" onClick={handleCloseModal}>
+                닫기
+            </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   )
 }

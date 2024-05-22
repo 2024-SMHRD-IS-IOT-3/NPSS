@@ -83,9 +83,9 @@ router.post('/handleLight', async (req, res) => {
     let {storeIdx} = req.body;
     try{
         const connection = await connectToOracle();
-        let sql = `SELECT LIGHT_BRITENESS FROM LIGHT_INFO WHERE STORE_IDX=:1`;
+        let sql = `SELECT LIGHT_BRITENESS FROM LIGHT_INFO WHERE LIGHT_IDX=353`;
 
-        result = await connection.execute(sql,[storeIdx]);
+        result = await connection.execute(sql);
         res.json({lightData : result.rows, storeIdx : storeIdx});
 
     } catch (err){
@@ -94,10 +94,46 @@ router.post('/handleLight', async (req, res) => {
     }
 
   }); 
+router.post('/handleSolar', async (req, res) => {
+
+    let {storeIdx} = req.body;
+    try{
+        const connection = await connectToOracle();
+        let sql = `SELECT SOLAR_WATT FROM SOLAR_INFO WHERE SOLAR_IDX=1318`;
+
+        result = await connection.execute(sql);
+        res.json({ solarData : result.rows, storeIdx : storeIdx});
+
+    } catch (err){
+        console.error('Error executing query:', err);
+        res.status(500).send({ result: 'fail' });
+    }
+
+  }); 
+  
+router.post('/handleTemp', async (req, res) => {
+
+    let {storeIdx} = req.body;
+    try{
+        const connection = await connectToOracle();
+        let sql = `SELECT CURR_TEMP FROM AIRCON_INFO WHERE AIRCON_IDX=852`;
+
+        result = await connection.execute(sql);
+        res.json({tempData : result.rows, storeIdx : storeIdx});
+
+    } catch (err){
+        console.error('Error executing query:', err);
+        res.status(500).send({ result: 'fail' });
+    }
+
+  }); 
+
+
+
 
   router.post('/data', async (req, res) => {
     const tempData = req.body.temperature;
-    // const lightData = req.body.light;
+    const lightData = req.body.light;
     const solarData= req.body.solar;
     
     if (tempData !== undefined) {
@@ -105,10 +141,10 @@ router.post('/handleLight', async (req, res) => {
       await insertDataIntoOracle('AIRCON_INFO','CURR_TEMP', tempData);
     }
     
-    // if (lightData !== undefined) {
-    //   console.log('Received light data from Raspberry Pi:', lightData);
-    //   await insertDataIntoOracle('LIGHT_TABLE', lightData);
-    // }
+    if (lightData !== undefined) {
+      console.log('Received light data from Raspberry Pi:', lightData);
+      await insertDataIntoOracle('LIGHT_INFO','LIGHT_BRITENESS', lightData);
+    }
   
     if (solarData!==undefined){
       console.log('Received solar data from Raspberry Pi:', solarData);

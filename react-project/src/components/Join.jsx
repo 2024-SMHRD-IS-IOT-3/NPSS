@@ -30,7 +30,7 @@ const Join = () => {
           console.log(res.data)
           if (res.data.result === "success") {
             alert('가입을 축하합니다.');
-            window.location.href = "/";
+            window.location.href = "/check";
           }
         })
         .catch((error) => {

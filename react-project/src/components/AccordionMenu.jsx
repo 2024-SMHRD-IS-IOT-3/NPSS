@@ -6,9 +6,11 @@ import { HiHome } from "react-icons/hi2";
 import axios from '../axios'
 
 const AccordionMenu = () => {
-  var acc = document.getElementsByClassName("accordion");
-  var i;
+  let acc = document.getElementsByClassName("accordion");
+  let i;
 
+  
+  /*
   for (i = 0; i < acc.length; i++) {
     acc[i].addEventListener("click", function() {
       this.classList.toggle("active");
@@ -20,29 +22,22 @@ const AccordionMenu = () => {
         panel.style.maxHeight = panel.scrollHeight + "px";
       }
     
-    });
+    }
+  );
   }
-
+  */
   return (
     <div className="accordionDiv">
         <button className="accordion">
         <HiHome color='whitesmoke' size='18px'/><span> Home</span>
         </button>
-          <div className="panel">
-            <ul type="none">
-              <li className="panelLi"><Link to={'/light'}>조명</Link></li>
-              <li className="panelLi"><Link to={'/sign'}>간판</Link></li>
-              <li className="panelLi"><Link to={'/solar'}>태양열</Link></li>
-              <li className="panelLi"><Link to={'/cooler'}>냉난방장치</Link></li>
-            </ul>
-          </div>
+         
         <button className="accordion">
         <MdOutlineStorefront color='whitesmoke' size='20px'/><span> Store 1</span>
         </button>
           <div className="panel">
             <ul type="none">
-              <li className="panelLi"><Link to={'/light'}>조명</Link></li>
-              <li className="panelLi"><Link to={'/sign'}>간판</Link></li>
+              <li className="panelLi"><Link to={'/light'}>조명 • 간판</Link></li>
               <li className="panelLi"><Link to={'/solar'}>태양열</Link></li>
               <li className="panelLi"><Link to={'/cooler'}>냉난방장치</Link></li>
             </ul>
@@ -53,8 +48,7 @@ const AccordionMenu = () => {
           </button>
           <div className="panel">
             <ul type="none">
-              <li className="panelLi"><Link to={'/light'}>조명</Link></li>
-              <li className="panelLi"><Link to={'/sign'}>간판</Link></li>
+              <li className="panelLi"><Link to={'/light'}>조명 • 간판</Link></li>
               <li className="panelLi"><Link to={'/solar'}>태양열</Link></li>
               <li className="panelLi"><Link to={'/cooler'}>냉난방장치</Link></li>
             </ul>
@@ -65,8 +59,7 @@ const AccordionMenu = () => {
           </button>
           <div className="panel">
             <ul type="none">
-              <li className="panelLi"><Link to={'/light'}>조명</Link></li>
-              <li className="panelLi"><Link to={'/sign'}>간판</Link></li>
+              <li className="panelLi"><Link to={'/light'}>조명 • 간판</Link></li>
               <li className="panelLi"><Link to={'/solar'}>태양열</Link></li>
               <li className="panelLi"><Link to={'/cooler'}>냉난방장치</Link></li>
             </ul>
