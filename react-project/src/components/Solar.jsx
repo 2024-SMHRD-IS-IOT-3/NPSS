@@ -18,6 +18,7 @@ const Solar = () => {
     const [date, setDate] = useState(getstringDate(new Date()));
 
     const [solarData, setSolarData] = useState('');
+    const [solarWatt,setSolarWatt]=useState([]);
     useEffect(()=>{
         console.log('handle Light function', solarData);
   
@@ -26,8 +27,7 @@ const Solar = () => {
             storeIdx : 1
         })
         .then(res => {
-            console.log('storeIdx', res.data.storeIdx)
-            console.log('then', res.data.solarData[0]);
+            console.log('solar data received:', res.data);
             setSolarData(res.data.solarData[0]);
   
         })
@@ -54,7 +54,7 @@ const Solar = () => {
 
         <div className="indexDiv">
             <div className="indexInfo">
-                <h5 className="indexTitle">아이스크림 남구점</h5>
+                <h5 className="indexTitle">스마트인재개발원</h5>
                 <input className="inputDate" type="date" value={date} onChange={(e) => setDate(e.target.value)} />
             </div>
 
@@ -74,7 +74,7 @@ const Solar = () => {
                         <h5>누적 발전량</h5>
                         <div className='contentWrapper'>
                             <div className='circle2'></div>
-                            <h3>25 Lux</h3>
+                            <h3>672 mW</h3>
                         </div>
                     </div>
                     </div>
@@ -84,45 +84,48 @@ const Solar = () => {
                 <div className='indexGraph'>
                     <h5>누적 현황</h5>
                     <Chart
-                        type="line"
-                        series={[{
-                            name: "Session Duration",
-                            data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
-                          },
-                          {
-                            name: "Page Views",
-                            data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35]
-                          },
-                          {
-                            name: 'Total Visits',
-                            data: [87, 57, 74, 99, 75, 38, 62, 47, 82, 56, 45, 47]
-                          }
-                            
-                        ]}
-                        options={{
-                            chart: {
-                                height: 350,
-                                type: 'line',
-                                zoom: {
-                                  enabled: false
-                                }
-                              },
-                              
-                              title: {
-                                text: 'Product Trends by Month',
-                                align: 'left'
-                              },
-                              xaxis: {
-                                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep','Oct','Nov','Dec'],
-                              },
-                              theme: {
-                                mode: 'light', 
-                                palette: 'palette10', 
-                                monochrome: {
-                                    enabled: false,
-                                    color: '#255aee',
-                                    shadeTo: 'light',
-                                    shadeIntensity: 0.65
+              type="line"
+              series={[
+                {
+                  name:"",
+                  data: [10.7, 10.2, 10.8, 26.3, 64.8, 79.1, 86.7, 89.4,86.2,64.3,35.5,15.2],
+                }
+                
+              ]}
+              options={{
+                chart: {
+                  height: 350,
+                  type: 'line',
+                  zoom: {
+                    enabled: false,
+                  },
+                },
+
+                
+                xaxis: {
+                  categories: [
+                    '0시',
+                    '2시',
+                    '4시',
+                    '6시',
+                    '8시',
+                    '10시',
+                    '12시',
+                    '14시',
+                    '16시',
+                    '18시',
+                    '20시',
+                    '22시',
+                  ],
+                },
+                theme: {
+                  mode: 'light',
+                  palette: 'palette10',
+                  monochrome: {
+                    enabled: false,
+                    color: '#255aee',
+                    shadeTo: 'light',
+                    shadeIntensity: 0.65,
                                 },
                                 
                         }}

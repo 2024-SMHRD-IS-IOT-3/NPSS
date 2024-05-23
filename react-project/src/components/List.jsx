@@ -33,8 +33,8 @@ const ListItem = ({
   
     return (
       <Li>
-        // 상위 컴포넌트에서 받아온 active 변수를 className으로 넘겨준다
-        // 이 때 `active`라는 변수가 활성화되면 이에 대응하는 스타일링을 처리해준다
+        {/* // 상위 컴포넌트에서 받아온 active 변수를 className으로 넘겨준다
+        // 이 때 `active`라는 변수가 활성화되면 이에 대응하는 스타일링을 처리해준다 */}
         <AccodianWrapper className={active}>
           <FirstMenu onClick={handleClick}>
             <IconWrapper>

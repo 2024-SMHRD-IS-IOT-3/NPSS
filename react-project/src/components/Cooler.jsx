@@ -19,23 +19,23 @@ const Cooler = () => {
   const [date, setDate] = useState(getstringDate(new Date()));
 
   const [tempData, setTempData] = useState('');
-  useEffect(() => {
-    console.log('handle temp function', tempData);
+const [tempExt, setTempExt] = useState([]);
 
+  useEffect(() => {
+    console.log('Fetching temperature data...');
     axios
-      .post('/handleTemp', {
-        storeIdx: 1,
-      })
+      .post('/handleTemp', { storeIdx: 1 })
       .then((res) => {
-        console.log('storeIdx', res.data.storeIdx);
-        console.log('then', res.data.tempData[0]);
+        console.log('Temperature data received:', res.data);
         setTempData(res.data.tempData[0]);
+        setTempExt(res.data.tempExt);
       })
       .catch((error) => {
-        console.error('Error:', error);
-        alert('접속 실패하였습니다.');
+        console.error('Error fetching temperature data:', error);
+        alert('Failed to fetch temperature data.');
       });
   }, []);
+  
 
   const inputGoal = document.getElementsByClassName('inputGoal');
   const inputGoal2 = document.getElementsByClassName('inputGoal2');
@@ -93,7 +93,7 @@ const Cooler = () => {
 
         <div className="indexDiv">
           <div className="indexInfo">
-            <h5 className="indexTitle">아이스크림 남구점</h5>
+            <h5 className="indexTitle">스마트인재개발원</h5>
             <input
               className="inputDate"
               type="date"
@@ -110,7 +110,7 @@ const Cooler = () => {
                   <h5>평균 사용량</h5>
                   <div className="contentWrapper">
                     <div className="circle"></div>
-                    <h3>25 Lux</h3>
+                    <h3>25 ℃</h3>
                   </div>
                 </div>
                 <div>
@@ -127,12 +127,12 @@ const Cooler = () => {
               <div>
                 <div className="indexContent2">
                   <h5>현재 온도</h5>
-                  <h3>{tempData} Lux</h3>
+                  <h3>{tempData} ℃</h3>
                   <p>2% 🔺</p>
                 </div>
                 <div className="indexContent2">
                   <h5>현재 습도</h5>
-                  <h3>25 Lux</h3>
+                  <h3>25%</h3>
                   <p>2% 🔺</p>
                 </div>
               </div>
@@ -149,7 +149,7 @@ const Cooler = () => {
                       <button onClick={handleGoalLight}>입력</button>
                     </div>
                   </div>
-                  <h3 className="inputGoal">{tempGoal} Lux</h3>
+                  <h3 className="inputGoal">{tempGoal} ℃</h3>
                   </div>
                 </div>
                 <div className="indexContent2">
@@ -164,7 +164,7 @@ const Cooler = () => {
                       <button onClick={handleGoalHumid}>입력</button>
                     </div>
                   </div>
-                  <h3 className="inputGoal2">{humGoal} Lux</h3>
+                  <h3 className="inputGoal2">{humGoal} ℃</h3>
                   </div>
                 </div>
               </div>
@@ -176,17 +176,10 @@ const Cooler = () => {
               type="line"
               series={[
                 {
-                  name: 'Session Duration',
-                  data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10],
-                },
-                {
-                  name: 'Page Views',
-                  data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35],
-                },
-                {
-                  name: 'Total Visits',
-                  data: [87, 57, 74, 99, 75, 38, 62, 47, 82, 56, 45, 47],
-                },
+                  name:"",
+                  data: [19, 18, 17, 16, 17, 20, 24, 26,28,28,26,22],
+                }
+                
               ]}
               options={{
                 chart: {
@@ -197,24 +190,21 @@ const Cooler = () => {
                   },
                 },
 
-                title: {
-                  text: 'Product Trends by Month',
-                  align: 'left',
-                },
+                
                 xaxis: {
                   categories: [
-                    'Jan',
-                    'Feb',
-                    'Mar',
-                    'Apr',
-                    'May',
-                    'Jun',
-                    'Jul',
-                    'Aug',
-                    'Sep',
-                    'Oct',
-                    'Nov',
-                    'Dec',
+                    '0시',
+                    '2시',
+                    '4시',
+                    '6시',
+                    '8시',
+                    '10시',
+                    '12시',
+                    '14시',
+                    '16시',
+                    '18시',
+                    '20시',
+                    '22시',
                   ],
                 },
                 theme: {
@@ -239,3 +229,5 @@ const Cooler = () => {
 };
 
 export default Cooler;
+
+

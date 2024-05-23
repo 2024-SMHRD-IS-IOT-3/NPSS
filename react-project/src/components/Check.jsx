@@ -80,7 +80,7 @@ const Check = () => {
         <h1>사용자 정보 입력</h1>
         
         <div className="formTag">
-          <h5>점포 등록</h5> <br />
+          <h5>점포 등록</h5>
           <input type="text" className="formInput2" placeholder='사업자 등록번호를 입력해주세요.' onChange={(e) => {setSchoolNum(e.target.value);}}
             name="code1"
             defaultValue=""
@@ -89,22 +89,23 @@ const Check = () => {
             style={{ imeMode: 'disabled' }}
             maxLength="10"
           />
-          <br />
-          <h5>대표자 성명</h5> <br />
+          <br /><br />
+          <h5>대표자 성명</h5> 
           <input type='text' className="formInput2" placeholder='대표자 성명을 입력해주세요.'/>
-          <br />
-          <h5>개업일자</h5> <br />
+          <br /><br />
+          <h5>개업일자</h5>
           <input type='text' className="formInput2" placeholder='개업일자를 입력해주세요.'/>
           <br />
-          <button type="submit" onClick={handlerCheckSchoolNum}>
-            인증하기
-          </button>
-          <span className='checkLicense'>확인되었습니다. </span>
+          <div className='checkView'>
+            <span className='checkLicense'>확인되었습니다. </span>
+            <button type="submit" className="checkInput" onClick={handlerCheckSchoolNum}>
+              인증하기
+            </button>
+          </div>
 
           <br />
           <hr/>
           <h5>결제하기</h5>
-          <br />
           <button className='btn' onClick={handleShowModal}>결제창</button>
           <br />
           <br />

@@ -1,5 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Alatsi|Poppins&display=swap');
+.mainIntro {
+  width: 500px;
 
+}
+
+/* 인증하기 */
+.checkView .checkInput {
+  display: inline-block;
+  color: whitesmoke;
+  background-color: rgb(17, 82, 147);
+  text-decoration: none;
+  border: 0.5px solid rgb(17, 82, 147);
+  border-radius: 5px;
+  width: 100px;
+  height: 48px;
+  margin-right: 160px;
+  margin-left: 40px;
+  margin-top: 10px;
+}
+.checkView {
+  display: inline;
+  margin-left: 24%;
+}
 /* 결제창 */
 .modal-body > img {
   width: 100%;
@@ -44,6 +66,7 @@
   border-radius: 4px;
   box-sizing: border-box;
 }
+
 /* (구) .formTag>input*/
 .formInput {
   display: inline-block;
@@ -57,7 +80,7 @@
 }
 .formInput2 {
   display: inline-block;
-  width: 375px;
+  width: 500px;
   border: 1px solid rgb(17, 82, 147);
   padding: 10px;
   border-radius: 4px;
@@ -69,8 +92,8 @@
   padding: 10px;
   color: rgb(5, 35, 65);
   font-weight: 500px;  
-
 }
+
 .formTag>svg {
   display: inline;
   width: 30px;
@@ -354,6 +377,7 @@ button>a:hover{
 /* 마이페이지 사업자 등록 번호 */
 .checkLicense {
   display: none;
+  margin-top: 45px;
 }
 .licenseInput {
   width: 100%;
@@ -718,6 +742,7 @@ button>a:hover{
   text-align: left;
 }
 
+
 .loginSpan>a{
   text-decoration: none;
   color: black;
@@ -753,8 +778,8 @@ button>a:hover{
   position: absolute;
 }
 img.logo1 {
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: 500px;
 }
 img.logo2 {
   width: 300px;

@@ -20,17 +20,6 @@ router.post('/handleJoin', async (req, res) => { // 비동기 함수로 변경
     try {
         const connection = await connectToOracle(); // 데이터베이스 연결 객체를 가져옴
 
-        // // 1. 회원가입을 할 수 있는 쿼리문 작성 - sql
-        // let sql = `INSERT INTO USER_INFO (USER_ID, USER_PW, USER_EMAIL, JOINED_AT) VALUES (:id, :pw, :email, SYSDATE)`;
-
-        // // 2. DB에 연결해서 쿼리문을 실행
-        // const result = await connection.execute(sql, {
-        //     id: id,
-        //     pw: pw,
-        //     email: email,
-
-        // });        
-        
         // 1. 회원가입을 할 수 있는 쿼리문 작성 - sql
         let sql = `INSERT INTO USER_INFO VALUES(:1, :2, :3, SYSDATE)`;
 
@@ -77,32 +66,43 @@ router.post("/mypage", (req, res)=>{
     console.log("license router", req.body);
 })
 
-// Route for temperature and light data
+//Route for temperature and light data
 router.post('/handleLight', async (req, res) => {
+  let { storeIdx } = req.body;
+  try {
+      const connection = await connectToOracle();
+      let sql = `SELECT LIGHT_BRITENESS FROM LIGHT_INFO WHERE LIGHT_IDX = 8851`;
+      let sql_bri = `
+      SELECT TO_CHAR(TRUNC(CREATED_AT, 'HH24') + INTERVAL '1' HOUR, 'YYYY-MM-DD HH24') AS HOUR,
+      ROUND(AVG(LIGHT_BRITENESS)) AS AVERAGE_BRIGHTNESS
+      FROM LIGHT_INFO
+      WHERE LIGHT_BRITENESS IS NOT NULL 
+      GROUP BY TO_CHAR(TRUNC(CREATED_AT, 'HH24') + INTERVAL '1' HOUR, 'YYYY-MM-DD HH24')
+      ORDER BY HOUR`;
+      const result = await connection.execute(sql);
+      const result_bri = await connection.execute(sql_bri);
+      res.json({ lightData: result.rows, lightBri: result_bri.rows, storeIdx: storeIdx });
+  } catch (err) {
+      console.error('Error executing query:', err);
+      res.status(500).send({ result: 'fail' });
+  }
+});
 
-    let {storeIdx} = req.body;
-    try{
-        const connection = await connectToOracle();
-        let sql = `SELECT LIGHT_BRITENESS FROM LIGHT_INFO WHERE LIGHT_IDX=353`;
-
-        result = await connection.execute(sql);
-        res.json({lightData : result.rows, storeIdx : storeIdx});
-
-    } catch (err){
-        console.error('Error executing query:', err);
-        res.status(500).send({ result: 'fail' });
-    }
-
-  }); 
 router.post('/handleSolar', async (req, res) => {
 
     let {storeIdx} = req.body;
     try{
         const connection = await connectToOracle();
         let sql = `SELECT SOLAR_WATT FROM SOLAR_INFO WHERE SOLAR_IDX=1318`;
-
-        result = await connection.execute(sql);
-        res.json({ solarData : result.rows, storeIdx : storeIdx});
+        let sql_solar=`SELECT TO_CHAR(TRUNC(CREATED_AT, 'HH24') + INTERVAL '1' HOUR, 'YYYY-MM-DD HH24') AS HOUR,
+      ROUND(AVG(SOLAR_WATT)) AS AVERAGE_WATT
+      FROM SOLAR_INFO
+      WHERE SOLAR_WATT IS NOT NULL 
+      GROUP BY TO_CHAR(TRUNC(CREATED_AT, 'HH24') + INTERVAL '1' HOUR, 'YYYY-MM-DD HH24')
+      ORDER BY HOUR`
+        const result = await connection.execute(sql);
+        const result_watt=await connection.execute(sql_solar);
+        res.json({ solarData : result.rows, storeIdx : storeIdx,solarWatt:result_watt.rows});
 
     } catch (err){
         console.error('Error executing query:', err);
@@ -116,10 +116,17 @@ router.post('/handleTemp', async (req, res) => {
     let {storeIdx} = req.body;
     try{
         const connection = await connectToOracle();
-        let sql = `SELECT CURR_TEMP FROM AIRCON_INFO WHERE AIRCON_IDX=852`;
-
+        let sql = `SELECT EXT_TEMP FROM AIRCON_INFO WHERE AIRCON_IDX=10153`;
+        let sql_temp=`SELECT TO_CHAR(TRUNC(CREATED_AT, 'HH24') + INTERVAL '1' HOUR, 'YYYY-MM-DD HH24') AS HOUR,
+        ROUND(AVG(EXT_TEMP),1) AS AVERAGE_TEMP
+        FROM AIRCON_INFO
+        WHERE EXT_TEMP IS NOT NULL 
+        GROUP BY TO_CHAR(TRUNC(CREATED_AT, 'HH24') + INTERVAL '1' HOUR, 'YYYY-MM-DD HH24')
+        ORDER BY HOUR`
         result = await connection.execute(sql);
-        res.json({tempData : result.rows, storeIdx : storeIdx});
+        result_ext=await connection.execute(sql_temp);
+        console.log(result_ext.rows)
+        res.json({tempData : result.rows, storeIdx : storeIdx,tempExt:result_ext.rows});
 
     } catch (err){
         console.error('Error executing query:', err);
@@ -138,7 +145,7 @@ router.post('/handleTemp', async (req, res) => {
     
     if (tempData !== undefined) {
       console.log('Received temperature data from Raspberry Pi:', tempData);
-      await insertDataIntoOracle('AIRCON_INFO','CURR_TEMP', tempData);
+      await insertDataIntoOracle('AIRCON_INFO','EXT_TEMP', tempData);
     }
     
     if (lightData !== undefined) {
@@ -161,7 +168,7 @@ router.post('/handleTemp', async (req, res) => {
       const connection = await connectToOracle();
   
       // Construct the SQL query
-      const sql = `INSERT INTO ${tableName} (${dataColumn}) VALUES (:val)`;
+      const sql = `INSERT INTO ${tableName} (${dataColumn},  CREATED_AT) VALUES (:val, SYSDATE)`;
   
       // Execute the query
       const result = await connection.execute(sql, [data], { autoCommit: true });

@@ -14,13 +14,15 @@ import Chart from 'react-apexcharts';
 
 const Light = () => {
   const [storeNum, setStoreNum] = useState();
+  
 
   const getstringDate = (date) => {
     return date.toISOString().slice(0, 10);
   };
   const [date, setDate] = useState(getstringDate(new Date()));
 
-  const [lightData, setLightData] = useState('');
+  const [lightData, setLightData] = useState();
+  const [lightDataBri,setLightBri]=useState([]);
 
   useEffect(() => {
     console.log('handle Light function', lightData);
@@ -30,14 +32,15 @@ const Light = () => {
         storeIdx: 1,
       })
       .then((res) => {
-        console.log('storeIdx', res.data.storeIdx);
-        console.log('then', res.data.lightData[0]);
-        setLightData(res.data.lightData[0]);
+        console.log('Light data :', res.data.lightData);
+        setLightData(res.data.lightData);
       })
       .catch((error) => {
         console.error('Error:', error);
         alert('접속 실패하였습니다.');
       });
+
+ 
   }, []);
 
   const inputGoal = document.getElementsByClassName('inputGoal');
@@ -89,7 +92,7 @@ const Light = () => {
 
         <div className="indexDiv">
           <div className="indexInfo">
-            <h5 className="indexTitle">아이스크림 남구점</h5>
+            <h5 className="indexTitle">스마트인재개발원</h5>
             <input
               className="inputDate"
               type="date"
@@ -122,13 +125,13 @@ const Light = () => {
             <div className="indexDiv2">
               <div>
                 <div className="indexContent2">
-                  <h5>현재 밝기</h5>
+                  <h5>가게 내부 밝기</h5>
                   <h3>{lightData} Lux</h3>
                   <p>2% 🔺</p>
                 </div>
                 <div className="indexContent2">
-                  <h5>현재 온도</h5>
-                  <h3>25 Lux</h3>
+                  <h5>외부 밝기</h5>
+                  <h3>{255-lightData} Lux</h3>
                   <p>2% 🔺</p>
                 </div>
               </div>
@@ -153,7 +156,7 @@ const Light = () => {
                 </div>
                 <div className="indexContent2">
                   <h5>현재 습도</h5>
-                  <h3>25 Lux</h3>
+                  <h3>25%</h3>
                   <p>2% 🔺</p>
                 </div>
               </div>
@@ -165,17 +168,10 @@ const Light = () => {
               type="line"
               series={[
                 {
-                  name: 'Session Duration',
+                  name:"",
                   data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10],
-                },
-                {
-                  name: 'Page Views',
-                  data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35],
-                },
-                {
-                  name: 'Total Visits',
-                  data: [87, 57, 74, 99, 75, 38, 62, 47, 82, 56, 45, 47],
-                },
+                }
+                
               ]}
               options={{
                 chart: {
@@ -186,24 +182,21 @@ const Light = () => {
                   },
                 },
 
-                title: {
-                  text: 'Product Trends by Month',
-                  align: 'left',
-                },
+                
                 xaxis: {
                   categories: [
-                    'Jan',
-                    'Feb',
-                    'Mar',
-                    'Apr',
-                    'May',
-                    'Jun',
-                    'Jul',
-                    'Aug',
-                    'Sep',
-                    'Oct',
-                    'Nov',
-                    'Dec',
+                    '0시',
+                    '2시',
+                    '4시',
+                    '6시',
+                    '8시',
+                    '10시',
+                    '12시',
+                    '14시',
+                    '16시',
+                    '18시',
+                    '20시',
+                    '22시',
                   ],
                 },
                 theme: {
@@ -228,3 +221,4 @@ const Light = () => {
 };
 
 export default Light;
+
