@@ -100,11 +100,35 @@
     <td align="center"><strong>김준</strong></td>
     <td align="center"><strong>모현정</strong></td>
   </tr>
-  <tr>
-    <td><b>· PM<br/>· Front-End<br/>· DB 설계 및 구축</b></td>
-    <td><b>· Back-End 통신<br/>· DB 통신<br/>· IoT 하드웨어</b></td>
-    <td><b>· Front-End<br/>· Back-End 구축<br/>· 쓰레기통 하드웨어<br/>· 시연 영상 제작</b></td>
-   
+ <tr>
+    <td align="center">Main</td>
+    <td align="center">Main</td>
+    <td align="center">Main</td>
+  </tr>
+ <tr>
+    <td align="center">팀장, PM, Front-End</td>
+    <td align="center">Back-End, 하드웨어</td>
+    <td align="center">Front-End, Back-End, 하드웨어</td>
+  </tr>
+ <tr>
+    <td>· 리스크관리(기술적 문제, 팀워크 문제)<br/>· 프로젝트 일정/개인별 진행사항 파악, 회의 진행 및 회의록 작성<br/>· 회원가입/로그인/메인/정보입력/정보수정/인덱스(조명, 태양광, 냉난방)페이지 제작 및 디자인</td>
+    <td>· DB 통신<br/>· IoT 하드웨어 태양광<br/>· IoT 하드웨어 조명<br/>· IoT 하드웨어 냉난방장치(서보모터)</td>
+    <td>· 인덱스페이지(조명, 태양광, 냉난방) 제작<br/>· 로그인/정보수정 페이지 디자인<br/>· DB 구축<br/>· IoT 하드웨어 쓰레기통</td>
+  </tr>
+ <tr>
+    <td align="center">Sub</td>
+    <td align="center">Sub</td>
+    <td align="center">Sub</td>
+  </tr>
+ <tr>
+    <td align="center">Back-End, 공통업무</td>
+    <td align="center">공통업무</td>
+    <td align="center">공통업무</td>
+  </tr>
+ <tr>
+    <td>· DB 설계 및 구축<br/>· 프로젝트 기획서, 요구사항 정의서, 화면설계서, IoT 회로구성 정의서 작성</td>
+    <td>· 요구사항 정의서, IoT 회로구성 정의서 작성</td>
+    <td>· 시연 영상 제작<br/>· 테이블 명세서, DB 요구사항 분석서, IoT 회로구성 정의서, WBS 작성</td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/soob0513" target='_blank'>github</a></td>
