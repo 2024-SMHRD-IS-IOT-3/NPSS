@@ -114,10 +114,6 @@
 </table>
 <br/>
 
-## 📌시연영상
-https://github.com/2024-SMHRD-IS-IOT-3/NPSS/assets/165890322/f832316a-4661-4b6b-9ef6-a7a6b0ec2891
-<br/><br/>
-
 ## 📌참고문헌
 - (기사) 국내 최초 전통조명 대비 스마트조명 정확한 에너지절감률 측정<br/>
 https://www.electimes.com/news/articleView.html?idxno=317527<br/>
