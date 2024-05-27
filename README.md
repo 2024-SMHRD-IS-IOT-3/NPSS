@@ -88,11 +88,11 @@
 
 ## 📌화면구성
 ##### 1. 조명 밝기 제어 페이지<br/>
-![냉난방페이지](https://github.com/2024-SMHRD-IS-IOT-3/NPSS/assets/165890322/b87e962f-d80e-4181-9590-86238e6e2d31)
+![조명페이지](https://github.com/2024-SMHRD-IS-IOT-3/NPSS/assets/165890322/8c5ee8c7-2fbf-4eb6-96e0-8ede15e9655e)
 ##### 2. 태양광 페이지<br/>
 ![태양광페이지](https://github.com/2024-SMHRD-IS-IOT-3/NPSS/assets/165890322/bcfebaa1-cb49-4e49-97cf-7698ff9e169e)
 ##### 3. 냉난방 페이지<br/>
-![조명페이지](https://github.com/2024-SMHRD-IS-IOT-3/NPSS/assets/165890322/8c5ee8c7-2fbf-4eb6-96e0-8ede15e9655e)
+![냉난방페이지](https://github.com/2024-SMHRD-IS-IOT-3/NPSS/assets/165890322/b87e962f-d80e-4181-9590-86238e6e2d31)
 <br/>
 
 ## 📌팀원역할
