@@ -17,11 +17,11 @@
 <br/>
 
 ## 📌주요기능
-#### · 태양광 발전으로 전력 사용 감소 효과<br/>
-#### · 목표 밝기 설정으로 조명과 간판 자동 제어<br/>
-#### · 목표 온습도 설정으로 냉난방기 자동 제어<br/>
-#### · 자동 제어 시스템으로 전력 소비 감소<br/>
-#### · 자동 분류 쓰레기통으로 분리수거 효율 증가<br/>
+#### · 사업자등록번호 API를 활용해 점포 등록<br/>
+#### · 목표 밝기, 목표 온습도 설정 가능<br/>
+#### · 차트로 누적 전력 사용량 확인 가능<br/>
+#### · 자동 제어 시스템 구축<br/>
+#### · 자동 분류 쓰레기통으로 자동 개폐 시스템<br/>
 <br/>
 
 ## 📌기술스택
@@ -36,23 +36,23 @@
           <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white"/>
           <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=C++&logoColor=white"/> 
           <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"/>
-          <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black">
-          <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"/>
         </td>
     </tr>
     <tr>
-        <td>라이브러리</td>
+        <td>프레임워크 & 라이브러리</td>
         <td>
           <img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" > 
             <img src="https://img.shields.io/badge/BootStrap-7952B3?style=for-the-badge&logo=BootStrap&logoColor=white"/>
-          <img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white">
+         <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black">
+         <img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white">
+          <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"/>
 <img src="https://img.shields.io/badge/Axios-007CE2?style=for-the-badge&logo=axios&logoColor=white" >
         </td>
     </tr>
     <tr>
         <td>개발도구</td>
         <td>
-            <img src="https://img.shields.io/badge/RaspberryPi-A22846?style=for-the-badge&logo=RaskpberryPi&logoColor=white"/>
+            <img src="https://img.shields.io/badge/-RaspberryPi-C51A4A?style=for-the-badge&logo=Raspberry-Pi"/>
             <img src="https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white"/>
             <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white"/>
         </td>
@@ -60,7 +60,7 @@
     <tr>
         <td>데이터베이스</td>
         <td>
-            <img src="https://img.shields.io/badge/Oracle 11g-F80000?style=for-the-badge&logo=Oracle&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=Oracle&logoColor=white"/>
         </td>
     </tr>
     <tr>
@@ -68,6 +68,7 @@
         <td>
             <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white"/>
             <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>
+         <img src="https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white"/>
         </td>
     </tr>
 </table>
