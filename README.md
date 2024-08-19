@@ -27,7 +27,7 @@
 ## 📌기술스택
 <table>
     <tr>
-        <th>구분</th>
+        <th width="210px">구분</th>
         <th>내용</th>
     </tr>
     <tr>
